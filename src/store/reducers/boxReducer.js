@@ -1,40 +1,28 @@
 import { toast } from "react-toastify";
 
-const initialState={
-ref: null,
-name:null,
-size:null,
-price:null,
-id_cabine: null,
-};
+const initialState={boxes:[]};
 
-const boxReducer = (state=initialState, action) => {
-   
-    switch(action.type){
+const boxReducer = (boxes=initialState, action) => {
+   const {type,payload}=action;
+    switch(type){
         case "CREATE_BOX" :
             toast.success("create successfully...", {
                 position: toast.POSITION.BOTTOM_RIGHT,
               });
-            return {
-                ...initialState,
-                ref: action.payload.ref,
-                name: action.payload.name,
-                size: action.payload.size,
-                price: action.payload.price,
-                id_cabine: action.payload.id_cabine  ,             
-            };
+            return [...boxes, payload];
         case "READ_BOX" :
-            return action.payload;
+            return {...initialState,
+            boxes:payload};
                 
               
         case "UPDATE_BOX" :
             toast.success("box updated...",{
                 position : toast.POSITION.BOTTOM_RIGHT,
               });
-              return state.map((box) =>{
-             if( box._id === action.payload._id )
+              return boxes.map((box) =>{
+             if( box.id === payload.id )
              {return {...box,
-                        ...action.payload};
+                        ...payload};
              }else{ return box;}
 
     });
@@ -42,12 +30,12 @@ const boxReducer = (state=initialState, action) => {
             toast.success("Box Deleted...",{
                 position : toast.POSITION.BOTTOM_RIGHT,
               }) ;
-            return state.filter(({id}) => id !== action.payload.id);     
+            return boxes.filter(({id}) => id !== payload.id);     
         case "DELETE_ALL":
             return [];
                
         default:
-           return state;
+           return boxes;
     }
 };
 export default boxReducer;

@@ -2,11 +2,11 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect, useHistory } from "react-router-dom";
 
-import { Typography, Input, Button } from "antd";
+import { Typography,Form, Input, Button } from "antd";
 
 import { signUp } from "../../store/actions/authActions";
 
-
+import './SignUp.css';
 
 const SignUp = () => {
   const history = useHistory();
@@ -25,7 +25,7 @@ const SignUp = () => {
     .then((res)=>{console.log(res);
       history.push("/connexion");
     })
-     .catch((err)=>{
+    .catch((err)=>{
       console.log(err);
     })
       
@@ -37,46 +37,63 @@ const SignUp = () => {
 
   return (
     <>
-      <form
+      <Form
+       name="basic"
+       labelCol={{
+         span: 1,
+       }}
+       wrapperCol={{
+         span: 6,
+       }}
         noValidate
         autoComplete="off"
         onSubmit={handleSubmit}
       >
-        <Typography variant="h5">Sign Up;</Typography>
-        <Input
-          id="enter-username"
-          label="enterUsername"
+        <Typography.Title> Sign Up</Typography.Title>
+        <Form.Item
+      
+          label="username"
+          name="enterUsername"
           variant="outlined"
-          fullWidth
           value={user.username}
-          onChange={(e) => setUser({ ...user, username: e.target.value })}
-        />
-        <Input
+          onChange={(e) => setUser({ ...user, username: e.target.value })}>
+          
+          <Input />
+          </Form.Item>
+        <Form.Item
          
-          id="enter-email"
-          label="enterEmail"
+          label="email"
+          name="Email"
           variant="outlined"
-          fullWidth
           value={user.email}
-          onChange={(e) => setUser({ ...user, email: e.target.value })}
-        />
-        <Input
-          id="enter-password"
-          type="password"
-          label="enterPassword"
+          onChange={(e) => setUser({ ...user, email: e.target.value })}>
+            <Input />
+            </Form.Item>
+        <Form.Item
+          label="password"
+          name="password"
           variant="outlined"
-          fullWidth
           value={user.password}
-          onChange={(e) => setUser({ ...user, password: e.target.value })}
-        />
+          onChange={(e) => setUser({ ...user, password: e.target.value })}>
+ <Input.Password />
+ </Form.Item>
+ 
+ <Form.Item
+        wrapperCol={{
+          offset: 8,
+          span: 16,
+        }}
+      >
         <Button
           variant="contained"
           color="primary"
           type="submit"
+          onClick={handleSubmit}
         >
           SignUp
         </Button>
-      </form>
+        </Form.Item>
+      </Form>
     </>
   );
 };

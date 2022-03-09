@@ -14,3 +14,15 @@ export const CreateCabine = (ref,name)=> async (dispatch)=> {
     });
 }) 
 }
+export const ReadCabine = ()=> async(dispatch)=>{
+    try {
+        const res =  await CabineService.getAll();
+        console.log("payload :"+res.data);
+        dispatch({
+            type: "READ_CABINE",
+            payload : res.data,
+        });
+    }catch(error){
+        console.log(error);
+    }
+};

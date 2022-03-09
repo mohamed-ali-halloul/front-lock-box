@@ -1,23 +1,21 @@
 import { toast } from "react-toastify";
 const initialState={
-    ref : null,
-    name: null,
+    cabine:[]
 };
-const cabineReducer = (state=initialState, action) => {
-    switch(action.type){
+const cabineReducer = (cabine=initialState, action) => {
+    const {type,payload}=action;
+
+    switch(type){
         case "CREATE_CABINE":
             toast.success("create successfully...",{
                 position: toast.POSITION.BOTTOM_RIGHT,
             });
-            return{
-                ...initialState,
-                ref :action.payload.ref,
-                name: action.payload.name,
-            };
+            return[...cabine,payload]
 
-        /*case "READ_CABINE":
-            return payload;
-
+        case "READ_CABINE":
+            return {...initialState,
+                cabine:payload};
+/*
         case "UPDATE_CABINE":
             toast.success("cabine updated ...",{
                 position: toast.POSITION.BOTTOM_RIGHT,
@@ -36,7 +34,7 @@ const cabineReducer = (state=initialState, action) => {
             return cabines.filter(({id})=> id !==payload.id);
 */
         default:
-            return state;    
+            return cabine;    
 
     }
 };

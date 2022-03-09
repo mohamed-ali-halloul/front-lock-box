@@ -22,7 +22,8 @@ export const CreateBox = (ref, name,size,price,id_cabine) => async (dispatch) =>
  
 export const ReadBox = ()=> async(dispatch)=>{
     try {
-        const res =  BoxService.getAll();
+        const res =  await BoxService.getAll();
+        console.log("payload :"+res);
         dispatch({
             type: "READ_BOX",
             payload : res.data,
@@ -66,7 +67,7 @@ export const DeleteBox=(id)=> async(dispatch)=> {
 
 export const deleteAllBox=()=> async (dispatch)=> {
     try{
-        const res = BoxService.deleteAll();
+        const res =await BoxService.deleteAll();
         dispatch({
             type:"DELETTE_ALL",
             payload: res.data,

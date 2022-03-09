@@ -51,14 +51,14 @@ const history = useHistory();
       <form
         noValidate
         autoComplete="on"
-        
+        onSubmit={handleSubmit}
       >
-        <Typography variant="h5">signIn;</Typography>
+        <Typography variant="h5">signIn</Typography>
         <Input
           id="enter-email"
-          label="enterEmail"
+          placeholder="enterEmail"
           variant="outlined"
-          fullWidth
+          
           value={creds.email}
           onChange={(e) => setCreds({ ...creds, email: e.target.value })}
         />
@@ -66,9 +66,9 @@ const history = useHistory();
           
           id="enter-password"
           type="password"
-          label="enterPassword"
+          placeholder="enterPassword"
           variant="outlined"
-          fullWidth
+          
           value={creds.password}
           onChange={(e) => setCreds({ ...creds, password: e.target.value })}
         />
