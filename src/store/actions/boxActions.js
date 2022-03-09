@@ -69,7 +69,7 @@ export const deleteAllBox=()=> async (dispatch)=> {
     try{
         const res =await BoxService.deleteAll();
         dispatch({
-            type:"DELETTE_ALL",
+            type:"DELETE_ALL",
             payload: res.data,
         });
         return Promise.resolve(res.data);

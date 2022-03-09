@@ -7,6 +7,7 @@ import { Typography,Form, Input, Button } from "antd";
 import { signUp } from "../../store/actions/authActions";
 
 import './SignUp.css';
+import Acceuil from "../Acceuil";
 
 const SignUp = () => {
   const history = useHistory();
@@ -23,7 +24,7 @@ const SignUp = () => {
     e.preventDefault();
     dispatch(signUp(user))
     .then((res)=>{console.log(res);
-      history.push("/connexion");
+      if (res.status !=="401"){history.push("/connexion");}
     })
     .catch((err)=>{
       console.log(err);
@@ -37,6 +38,7 @@ const SignUp = () => {
 
   return (
     <>
+    <Acceuil />
       <Form
        name="basic"
        labelCol={{
@@ -47,7 +49,6 @@ const SignUp = () => {
        }}
         noValidate
         autoComplete="off"
-        onSubmit={handleSubmit}
       >
         <Typography.Title> Sign Up</Typography.Title>
         <Form.Item

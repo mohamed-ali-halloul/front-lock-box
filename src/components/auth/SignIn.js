@@ -5,7 +5,7 @@ import { Redirect, useHistory } from "react-router-dom";
 import { Button ,Typography, Input  } from 'antd';
 
 
-
+import Acceuil from "../Acceuil";
 import { login } from "../../store/actions/authActions";
 
 // const useStyles = makeStyles({
@@ -48,6 +48,7 @@ const history = useHistory();
 
   return (
     <>
+    <Acceuil />
       <form
         noValidate
         autoComplete="on"

@@ -40,8 +40,8 @@ const ListBoxes = () => {
       ],
       // specify the condition of filtering result
       // here is that finding the name started with `value`
-      onFilter: (value, record) => record.reference.indexOf(value) === 0,
-      sorter: (a, b) => a.reference.length - b.reference.length,
+      onFilter: (value, record) => record.ref.indexOf(value) === 0,
+      sorter: (a, b) => a.ref.length - b.ref.length,
       sortDirections: ['descend'],
     },
     {
@@ -116,6 +116,8 @@ const ListBoxes = () => {
     <Typography.Title>Boxes List:</Typography.Title>
     <Table columns={columns} dataSource={boxes} onChange={onChange} />
    </div>
+
+   <Button  onClick={removeAllBoxes} danger>Delete All</Button>
     </>
   );
 };

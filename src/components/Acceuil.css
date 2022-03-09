@@ -1,4 +1,7 @@
 .acc{
-    width: 15%;
+    width: 30%;
     margin: auto;
-}
+    border: 1px solid;
+    padding: 10px;
+    box-shadow: 5px 10px;
+font-weight: 200;}
