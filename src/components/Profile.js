@@ -6,7 +6,7 @@ const Profile = () => {
     <div>
       <Typography.Title>Profile</Typography.Title>
    <Typography>Update the currently User</Typography>
-   <Form> <Form.</Form>
+   <Form></Form>
    
    
       
