@@ -51,7 +51,9 @@ const AddBox = () => {
 
   return (
     <>
-      <Form noValidate autoComplete="off" onSubmit={handleSubmit}>
+      <Form name="basic"
+      labelCol={{ span: 5 }}
+      wrapperCol={{ span: 16 }} noValidate autoComplete="off" onSubmit={handleSubmit}>
         <Typography variant="h5">Create Box</Typography>
         <Form.Item label="Reference">
           <Input

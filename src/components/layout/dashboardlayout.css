@@ -1,7 +1,9 @@
 
 .ant-layout-header {
     padding: 0px;
-    background: #42a4ff;
-    height:100px;
+    background: #ffffff;
+    height: 85px;
     position: auto;
+    box-shadow: 10px 5px 5px black;
 }
+.ant-layout-sider {background-color: #ffffff;}

@@ -21,7 +21,9 @@ const AddCabine = () => {
 
   return (
     <>
-      <form noValidate autoComplete="off" onSubmit={handleSubmit}>
+      <Form name="basic"
+      labelCol={{ span: 5 }}
+      wrapperCol={{ span: 16 }} noValidate autoComplete="off" onSubmit={handleSubmit}>
         <Typography variant="h5">Create cabine</Typography>
         <Form.Item label="Reference">
         <Input
@@ -46,7 +48,7 @@ const AddCabine = () => {
         <Button variant="contained" color="primary" type="submit" onClick={handleSubmit}>
           Create
         </Button>
-      </form>
+      </Form>
     </>
   );
 };

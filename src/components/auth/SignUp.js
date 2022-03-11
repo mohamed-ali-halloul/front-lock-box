@@ -24,14 +24,12 @@ const SignUp = () => {
     e.preventDefault();
     dispatch(signUp(user))
     .then((res)=>{console.log(res);
-      if (res.status !=="401"){history.push("/connexion");}
+      history.push("/connexion");
     })
     .catch((err)=>{
       console.log(err);
     })
-      
-    
-    setUser({ username: "", email: "", password: "" });
+   setUser({ username: "", email: "", password: "" });
   };
 
   if (auth._id) return <Redirect to="/" />;
@@ -50,7 +48,7 @@ const SignUp = () => {
         noValidate
         autoComplete="off"
       >
-        <Typography.Title> Sign Up</Typography.Title>
+        <h1> Sign Up </h1>
         <Form.Item
       
           label="username"

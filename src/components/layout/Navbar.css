@@ -1,18 +1,16 @@
 .navbar{
    display: flex; 
-   background: #42a4ff;
-   align-items: center;
-
+   background: #ffffff;
+   justify-content: space-between;
+   box-shadow: 10px 5px 5px rgb(235, 230, 230);
    padding: 0px 0px;
 }
 h1.ant-typography{ 
       
        text-align: left ;
-       border: solid;
+       
 }
-.ant-menu{
-    background-color: #42a4ff;
-}
+
 .title{
     font-size:50px;
    margin-right: 55%;
@@ -23,4 +21,7 @@ h1.ant-typography{
 }
 .ant-menu-root.ant-menu-vertical{
      align-items: center;
+}
+.img{
+padding: 1%;
 }

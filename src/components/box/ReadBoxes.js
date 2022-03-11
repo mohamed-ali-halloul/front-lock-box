@@ -115,6 +115,8 @@ const ListBoxes = () => {
    <div>
     <Typography.Title>Boxes List:</Typography.Title>
     <Table columns={columns} dataSource={boxes} onChange={onChange} />
+    <Button>ABC</Button> 
+     
    </div>
 
    <Button  onClick={removeAllBoxes} danger>Delete All</Button>

@@ -54,7 +54,7 @@ const history = useHistory();
         autoComplete="on"
         onSubmit={handleSubmit}
       >
-        <Typography variant="h5">signIn</Typography>
+        <h1>sign In</h1>
         <Input
           id="enter-email"
           placeholder="enterEmail"
