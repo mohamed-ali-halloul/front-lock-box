@@ -20,7 +20,7 @@ return (
      <NavBar/>
     </Header>
     <Layout>
-      <Sider width={200} className="site-layout-background">
+      <Sider width={200} className="sider">
       <SideBar/>
       </Sider>
       <Layout style={{ padding: '0 24px 24px' }}>

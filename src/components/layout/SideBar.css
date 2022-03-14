@@ -1,2 +1,13 @@
 .ant-menu-submenu{color: rgb(0, 0, 0);}
-
+.ant-menu-submenu-selected{
+    color: #4fd1b1;
+}
+.ant-menu-inline .ant-menu-item::after{
+     border-right-color: #4fd1b1;
+}
+.ant-menu-item-selected  {
+    color: #4fd1b1;
+}
+.ant-menu-light .ant-menu-submenu-title:hover {
+    color: #4fd1b1;
+}
