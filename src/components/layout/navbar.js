@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Typography, Menu, Image } from "antd";
+import {  Menu, Dropdown  } from "antd";
 import logo from "./Locbox.png"
 import { Link, useHistory } from "react-router-dom";
 import { UserOutlined, LogoutOutlined  } from '@ant-design/icons';

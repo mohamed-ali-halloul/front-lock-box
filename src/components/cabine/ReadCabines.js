@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { Button , Typography, Table, Tag, Space} from "antd";
 
-import { ReadCabine } from "../../store/actions/cabineActions";
+import { deleteAllCabine, deleteCabine, ReadCabine } from "../../store/actions/cabineActions";
 import cabine from "../../api/cabine";
 
 const ListCabines = () => {
@@ -11,7 +11,16 @@ const ListCabines = () => {
     const [currentIndex, setCurrentIndex] = useState(-1);
   const cabines = useSelector((state) => state.cabines.cabine);
   
-
+const removeCabine=(id)=>{
+  dispatch(deleteCabine(id))
+      .then(response => {
+        console.log(response);
+        refreshData();
+      })
+      .catch(e => {
+        console.log(e);
+      });
+}
 
   const columns = [
     {
@@ -54,6 +63,16 @@ const ListCabines = () => {
       onFilter: (value, record) => record.name.indexOf(value) === 0,
       sorter: (a, b) => a.name.length - b.name.length,
     },
+    {
+      title: 'action',
+      dataIndex: 'id',
+      render: (id) => (
+        <Space size="middle">
+          
+          <Button onClick={()=>removeCabine(id)}>Delete</Button>
+        </Space>
+      ),
+    },
    
   ];
 
@@ -75,16 +94,16 @@ const ListCabines = () => {
 //     setCurrentIndex(index);
 //   };
 
-//   const removeAllBoxes = () => {
-//     dispatch(deleteAllBox())
-//       .then(response => {
-//         console.log(response);
-//         refreshData();
-//       })
-//       .catch(e => {
-//         console.log(e);
-//       });
-//   };
+  const removeAllCabines = () => {
+    dispatch(deleteAllCabine())
+      .then(response => {
+        console.log(response);
+        refreshData();
+      })
+      .catch(e => {
+        console.log(e);
+      });
+  };
   function onChange(pagination, filters, sorter, extra) {
     console.log('params', pagination, filters, sorter, extra);
   }
@@ -95,6 +114,7 @@ const ListCabines = () => {
     <Typography.Title>Cabines List:</Typography.Title>
     <Table columns={columns} dataSource={cabines} onChange={onChange} />
    </div>
+   <Button  onClick={removeAllCabines} danger>Delete All</Button>
     </>
   );
 };

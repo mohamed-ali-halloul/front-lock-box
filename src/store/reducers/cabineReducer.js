@@ -15,12 +15,12 @@ const cabineReducer = (cabine=initialState, action) => {
         case "READ_CABINE":
             return {...initialState,
                 cabine:payload};
-/*
+
         case "UPDATE_CABINE":
             toast.success("cabine updated ...",{
                 position: toast.POSITION.BOTTOM_RIGHT,
             })    ;
-            return cabines.map((cabine)=>{
+            return cabine.map((cabine)=>{
                 if(cabine._id=== payload._id){
                     return {...cabine,
                             ...payload};
@@ -31,8 +31,9 @@ const cabineReducer = (cabine=initialState, action) => {
             toast.success("cabine Deleted...",{
                 position: toast.POSITION.BOTTOM_RIGHT,
             }) ;
-            return cabines.filter(({id})=> id !==payload.id);
-*/
+            return cabine.filter(({id})=> id !==payload.id);
+        case "DELETE_ALL":
+            return[];    
         default:
             return cabine;    
 

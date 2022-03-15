@@ -8,10 +8,16 @@ const update= (id,data)=> {
     return http.put("/:id",id,data);
 }
 const Delete=(id)=> {
-    return http.delete("/:id",id);
+    return http.delete(`/${id}`);
+}
+const deleteAll=()=>{
+    return http.delete('/');
 }
 const CabineService ={
 create,
-getAll
+getAll,
+Delete,
+deleteAll,
+update
 };
 export default CabineService;
