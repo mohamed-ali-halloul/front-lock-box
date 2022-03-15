@@ -2,12 +2,11 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect, useHistory } from "react-router-dom";
 
-import { Typography,Form, Input, Button } from "antd";
+import { Form, Input, Button } from "antd";
 
 import { signUp } from "../../store/actions/authActions";
 
 import './SignUp.css';
-import Acceuil from "../Acceuil";
 
 const SignUp = () => {
   const history = useHistory();
@@ -24,7 +23,7 @@ const SignUp = () => {
     e.preventDefault();
     dispatch(signUp(user))
     .then((res)=>{console.log(res);
-      history.push("/connexion");
+      history.push("/");
     })
     .catch((err)=>{
       console.log(err);
@@ -36,7 +35,7 @@ const SignUp = () => {
 
   return (
     <>
-    <Acceuil />
+   
       <Form
        name="basic"
        labelCol={{

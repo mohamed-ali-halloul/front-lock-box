@@ -1,7 +1,25 @@
 .acc{
+    border-radius: 50px;
+   border: 2px solid rgb(204, 204, 204);
+   background-color: #4fd1b10d;
+   
+    }
+.d1{
     width: 30%;
-    margin: auto;
-    border: 1px solid;
-    padding: 10px;
-    box-shadow: 5px 10px;
+   margin-top: 2%;
+   margin-left: 35%;  
+
+    padding: 1%;
 font-weight: 200;}
+.im1{
+    margin-top: 5%;
+    margin-left: 35%;  
+
+}
+.img1{
+  
+  
+    width: 300px;
+    height: auto;
+    
+}

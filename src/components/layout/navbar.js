@@ -15,7 +15,7 @@ const NavBar = () => {
   const user = useSelector((state) => state.auth);
   const handleSignOut = () => {
     dispatch(signOut());
-    history.push("/connexion");
+    history.push("/");
   };
   
 

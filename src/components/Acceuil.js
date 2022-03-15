@@ -1,28 +1,30 @@
 import react from "react";
-import { Typography, Button } from "antd";
-import { Link, useHistory } from "react-router-dom";
+import {  useHistory } from "react-router-dom";
 import './Acceuil.css';
-import logo from"./layout/Locbox.png"
+import logos from"./layout/Locbox.png"
+import SignIn from "./auth/SignIn";
 const Acceuil = () => {
 
     const history = useHistory();
     const handleSignUp=()=>{
         history.push("/signup")
     }
-    const handleSignin=()=>{
-        history.push("/connexion");
-    }
+    
   return (
-    <>
-    <img src={logo} width={300} className="img" />
-    <div className="acc">
-      <h1>Acceuil</h1>
-      <p>Welcome to Lock Box </p>
-      
-      <Button onClick={handleSignin}> SIGN IN</Button>
-     <Button onClick={handleSignUp}> SIGN UP</Button> 
+    <div className="acc">   <div className="im1">
+    
+        <img src={logos} width={300} className="img1" />
+
     </div>
-    </>
+    <div className="d1">
+    
+      <h1>Welcome to Lock Box </h1>
+     <SignIn />
+    <p>Don't have an account please <a onClick={handleSignUp}>SignUp</a></p>
+     
+    </div>
+ 
+    </div>
   );
 };
 export default Acceuil;

@@ -31,7 +31,7 @@ const cabineReducer = (cabine=initialState, action) => {
             toast.success("cabine Deleted...",{
                 position: toast.POSITION.BOTTOM_RIGHT,
             }) ;
-            return cabine.filter(({id})=> id !==payload.id);
+            return {cabine:Object.values(cabine).filter(({id})=> id !==payload.id)};
         case "DELETE_ALL":
             return[];    
         default:

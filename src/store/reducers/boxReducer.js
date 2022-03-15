@@ -30,7 +30,10 @@ const boxReducer = (boxes=initialState, action) => {
             toast.success("Box Deleted...",{
                 position : toast.POSITION.BOTTOM_RIGHT,
               }) ;
-            return boxes.filter(({id}) => id !== payload.id);     
+              console.log(Object.values(boxes).filter(({id}) => console.log(id)));
+              console.log("payload"+payload.id);
+              
+            return { boxes :Object.values(boxes).filter(({id}) => id !== payload.id)};     
         case "DELETE_ALL":
             return [];
                

@@ -34,19 +34,22 @@ function App() {
 
         <Switch>
             <Route path="/" exact component={Acceuil}/>
-            <Route path="/connexion" component={SignIn} />
+            {/* <Route path="/connexion" component={SignIn} /> */}
             <Route path="/signup" component={SignUp} />
+            
             <LayoutDashboard>
             <PrivateRoute>
-              <Route path="/home" component={Home} />
-              <Route path="/profile" component={Profile} />
-              <Route path="/createbox" component={AddBox} />
-              <Route path="/box" component={Box} />
-              <Route path="/readBox" component={ListBoxes} />
-              <Route path="/createcabine" component={AddCabine} />
-              <Route path="/readcabines" component={ListCabines} />
+              <Route path="/home"exact component={Home} />
+              <Route path="/profile"exact component={Profile} />
+              <Route path="/createbox"exact component={AddBox} />
+              <Route path="/box"exact component={Box} />
+              <Route path="/readBox" exact component={ListBoxes} />
+              <Route path="/createcabine" exact component={AddCabine} />
+              <Route path="/readcabines" exact component={ListCabines} />
+              
             </PrivateRoute>
           </LayoutDashboard>
+          <Route path="*"component={()=>{return <p>ERREUR 404 </p>} }/>
         </Switch>
       </Router>
     </div>
