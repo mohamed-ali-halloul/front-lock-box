@@ -70,6 +70,7 @@ const removeCabine=(id)=>{
         <Space size="middle">
           
           <Button onClick={()=>removeCabine(id)}>Delete</Button>
+          <Button>Update</Button>
         </Space>
       ),
     },

@@ -1,15 +1,44 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import { ReadBox, deleteAllBox } from "../../store/actions/boxActions";
-import { Button , Typography, Table, Tag, Space} from "antd";
-
+import { ReadBox, deleteAllBox, DeleteBox } from "../../store/actions/boxActions";
+import { Button , Typography, Table,  Space} from "antd";
+import CabineService from "../../api/cabine/services";
 
 const ListBoxes = () => {
     const [currentBox, setCurrentBox] = useState(null);
     const [currentIndex, setCurrentIndex] = useState(-1);
+    const [cabines, setCabines] = useState([]);
+    const refreshData = () => {
+      setCurrentBox(null);
+      setCurrentIndex(-1);
+    };
   const boxes = useSelector((state) => state.boxe.boxes);
-  
+  const dispatch = useDispatch();
+  const getCabines = () => {
+    CabineService.getAll()
+      .then((res) => {
+        setCabines(res.data);
+        console.log(res.data);
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  };
+
+  useEffect(() => {
+    getCabines();
+  }, []);
+  const removeBox=(id)=>{
+    dispatch(DeleteBox(id))
+        .then(response => {
+          console.log(response);
+          refreshData();
+        })
+        .catch(e => {
+          console.log(e);
+        });
+  }
   const columns = [
     {
       title: 'ref',
@@ -78,19 +107,26 @@ const ListBoxes = () => {
       defaultSortOrder : 'descend',
       sorter: (a, b) => a.idcabine - b.idcabine
     },
+    {
+      title: 'action',
+      dataIndex: 'id',
+      render: (id) => (
+        <Space size="middle">
+          
+          <Button onClick={()=>removeBox(id)}>Delete</Button>
+          <Button>Update</Button>
+        </Space>
+      ),
+    },
   ];
 
   
-  const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(ReadBox());
   }, []);
 
-  const refreshData = () => {
-    setCurrentBox(null);
-    setCurrentIndex(-1);
-  };
+ 
   const setActiveBox = (box, index) => {
     setCurrentBox(box);
     setCurrentIndex(index);
@@ -115,7 +151,6 @@ const ListBoxes = () => {
    <div>
     <Typography.Title>Boxes List:</Typography.Title>
     <Table columns={columns} dataSource={boxes} onChange={onChange} />
-    <Button>ABC</Button> 
      
    </div>
 

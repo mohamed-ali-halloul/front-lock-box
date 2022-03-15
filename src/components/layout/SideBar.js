@@ -47,12 +47,10 @@ const SideBar= () => {
           <SubMenu key="sub2" icon={<InboxOutlined />} title="Box">
             <Menu.Item key="5" onClick={handleboxClick}>Create Box </Menu.Item>
             <Menu.Item key="6" onClick={handleoneboxClick}>Boxes</Menu.Item>
-            <Menu.Item key="7" >Box</Menu.Item>
             
           </SubMenu>
           <SubMenu key="sub3" icon={<InboxOutlined />} title="Cabine">
             <Menu.Item key="9" onClick={handlecabineClick}>Create Cabine</Menu.Item>
-            <Menu.Item key="10">Cabine</Menu.Item>
             <Menu.Item key="11" onClick={handleCabinesClick}>Cabines</Menu.Item>
           </SubMenu>
           <Menu.Item key="sub1" onClick={handleProfileClick} style={{color: 'black'}} icon={<UserOutlined /> }>Profile</Menu.Item>
