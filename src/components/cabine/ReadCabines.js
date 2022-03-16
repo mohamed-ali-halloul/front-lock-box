@@ -35,20 +35,7 @@ const removeCabine=(id)=>{
           text: 'sou005',
           value: 'sou005',
         },
-        {
-          text: 'Submenu',
-          value: 'Submenu',
-          children: [
-            {
-              text: 'Green',
-              value: 'Green',
-            },
-            {
-              text: 'Black',
-              value: 'Black',
-            },
-          ],
-        },
+       
       ],
       // specify the condition of filtering result
       // here is that finding the name started with `value`

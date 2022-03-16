@@ -35,19 +35,21 @@ const SignUp = () => {
 
   return (
     <>
-   
+    <div className="d">
       <Form
        name="basic"
        labelCol={{
-         span: 1,
+         span: 4,
        }}
        wrapperCol={{
-         span: 6,
+         span: 8,
        }}
         noValidate
         autoComplete="off"
       >
-        <h1> Sign Up </h1>
+        
+        <h1 className="t"> Sign Up </h1>
+        <div className="d2">
         <Form.Item
       
           label="username"
@@ -78,8 +80,8 @@ const SignUp = () => {
  
  <Form.Item
         wrapperCol={{
-          offset: 8,
-          span: 16,
+          offset: 4,
+          span: 8,
         }}
       >
         <Button
@@ -91,7 +93,9 @@ const SignUp = () => {
           SignUp
         </Button>
         </Form.Item>
+        </div>
       </Form>
+      </div>
     </>
   );
 };

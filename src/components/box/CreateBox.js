@@ -4,7 +4,7 @@ import { Typography, Input, Button, Form, InputNumber, Select } from "antd";
 import { CreateBox } from "../../store/actions/boxActions";
 import { Redirect } from "react-router-dom";
 import CabineService from "../../api/cabine/services";
-
+import "./CreateBox.css";
 const AddBox = () => {
   // const navigate = useNavigate();
   const boxe = useSelector((state) => state.boxe);
@@ -122,9 +122,11 @@ const AddBox = () => {
               })}
           </Select>
         </Form.Item>
+          <div className="btn1">
         <Button type="primary" htmlType="submit" onClick={handleSubmit}>
           Create
         </Button>
+        </div>
       </Form>
     </>
   );

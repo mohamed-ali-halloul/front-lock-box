@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { Redirect, useHistory } from "react-router-dom";
 
 import { Button, Form, Input } from "antd";
-import "./SignIn.css";
 
 import { login } from "../../store/actions/authActions";
 
@@ -34,7 +33,6 @@ const SignIn = () => {
 
   return (
     <>
-      {/* <Acceuil /> */}
       <Form
         name="basic"
         labelCol={{
