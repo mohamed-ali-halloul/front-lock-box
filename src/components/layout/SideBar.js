@@ -23,7 +23,7 @@ const SideBar= () => {
     }
 
     const handleoneboxClick = () => {
-        history.push('/readBox');
+        history.push('/readboxes');
     }
     const handleCabinesClick=()=>{
       history.push('/readcabines');

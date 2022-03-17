@@ -43,12 +43,12 @@ function App() {
               <Route path="/profile"exact component={Profile} />
               <Route path="/createbox"exact component={AddBox} />
               
-              <Route path="/readBox" exact component={ListBoxes} />
+              <Route path="/readboxes" exact component={ListBoxes} />
               <Route path="/createcabine" exact component={AddCabine} />
               <Route path="/readcabines" exact component={ListCabines} />
             </PrivateRoute>
           </LayoutDashboard>
-          <Route path="*"component={()=>{return <p>ERREUR 404 </p>} }/>
+          <Route path="*" component={()=>{return <p>ERREUR 404 </p>} }/>
         </Switch>
       </Router>
     </div>

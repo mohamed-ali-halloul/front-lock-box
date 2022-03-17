@@ -4,7 +4,7 @@ export default function PrivateRoute({children, ...rest}){
 const auth = verifieAuth();
 
 console.log(auth,children);
-    if (auth) { return children ; } else { return  <Redirect to ="/connexion"/>; }
+    if (auth) { return children ; } else { return  <Redirect to ="/"/>; }
 
     
 }
