@@ -11,7 +11,7 @@ import './SignUp.css';
 const SignUp = () => {
   const history = useHistory();
 
-  const auth = useSelector((state) => state.auth);
+  const auth = useSelector((state) => state.users);
   const dispatch = useDispatch();
   const [user, setUser] = useState({
     username: "",

@@ -13,7 +13,7 @@ const ListBoxes = () => {
       setCurrentBox(null);
       setCurrentIndex(-1);
     };
-  const boxes = useSelector((state) => state.boxe.boxes);
+  const boxes = useSelector((state) => state.boxe.box);
   const dispatch = useDispatch();
   const getCabines = () => {
     CabineService.getAll()

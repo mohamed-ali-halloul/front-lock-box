@@ -1,21 +1,21 @@
 import react, {useState,useEffect} from "react";
 import { Typography, Button, Form , Input} from "antd";
 import { useDispatch, useSelector } from "react-redux";
-import { update } from "../store/actions/authActions";
-const Profile = ({location, history}) => {
-  const [username, setUsername] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
-  const dispatch = useDispatch();
-  const userLogin  = useSelector((state) => state.auth);
-  const { userInfo } = userLogin;
-  
-  const submitHandler = (e) => {
-    e.preventDefault();
+import { updateUser } from "../store/actions/authActions";
+const Profile = () => {
 
-    dispatch(update({ username, email, password }));
-  };
+  const dispatch = useDispatch();
+  const user  = useSelector((state) => state.users);
+ 
+
+  const update=(user)=>{
+dispatch(updateUser(user))
+.then(response => {
+  console.log(response);
+})
+.catch(e => {
+  console.log(e);
+}); }
   return (
     <div>
       <Typography.Title>Profile</Typography.Title>
@@ -23,7 +23,7 @@ const Profile = ({location, history}) => {
    <Form   name="basic"
       labelCol={{ span: 5}}
       wrapperCol={{ span: 16 }}
-      initialValues={{ remember: true }}
+      initialValues={{Updatetheusername: user.username,UpdateEmail: user.email   }}
       autoComplete="off">
 <Form.Item
         label="Update the Username"
@@ -50,8 +50,9 @@ const Profile = ({location, history}) => {
 
 
       </Form>
-   
-    
+      <div>
+   <Button primary onClick={()=>update()}> Update</Button>
+   </div>
     </div>
   );
 };

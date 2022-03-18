@@ -1,7 +1,7 @@
 import React from 'react';
 import { Menu } from 'antd';
 import {
-    UserOutlined,
+    
     SnippetsOutlined,
     InboxOutlined,
     
@@ -28,8 +28,7 @@ const SideBar= () => {
     const handleCabinesClick=()=>{
       history.push('/readcabines');
     }
-    const handleProfileClick=()=>{
-      history.push('/profile');   }
+   
   return (
       <div >
         <div style={{margin: "8px"}}></div>
@@ -53,7 +52,7 @@ const SideBar= () => {
             <Menu.Item key="9" onClick={handlecabineClick}>Create Cabine</Menu.Item>
             <Menu.Item key="11" onClick={handleCabinesClick}>Cabines</Menu.Item>
           </SubMenu>
-          <Menu.Item key="sub1" onClick={handleProfileClick} style={{color: 'black'}} icon={<UserOutlined /> }>Profile</Menu.Item>
+        
         </Menu>
         </div>
   );

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { Button , Typography, Table, Tag, Space} from "antd";
-
+import "./ReadCabines.css";
 import { deleteAllCabine, deleteCabine, ReadCabine } from "../../store/actions/cabineActions";
 import cabine from "../../api/cabine";
 
@@ -35,12 +35,11 @@ const removeCabine=(id)=>{
           text: 'sou005',
           value: 'sou005',
         },
-       
       ],
       // specify the condition of filtering result
       // here is that finding the name started with `value`
       onFilter: (value, record) => record.ref.indexOf(value) === 0,
-      sorter: (a, b) => a.ref.length - b.ref.length,
+      // sorter: (a, b) => a.ref.length - b.ref.length,
       sortDirections: ['descend'],
     },
     {
@@ -48,7 +47,7 @@ const removeCabine=(id)=>{
       dataIndex: 'name',
       defaultSortOrder: 'descend',
       onFilter: (value, record) => record.name.indexOf(value) === 0,
-      sorter: (a, b) => a.name.length - b.name.length,
+      // sorter: (a, b) => a.name.length - b.name.length,
     },
     {
       title: 'action',

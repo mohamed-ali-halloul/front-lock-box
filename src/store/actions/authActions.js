@@ -19,7 +19,7 @@ export const signUp = (username, email, password) => async (dispatch) => {
 
 export const login = (email, password) => async (dispatch) => {
   try {
-    const res = await UserService.login({ email, password });
+    const res = await UserService.login({  email, password });
     var json = JSON.stringify(res.data.token);
     console.log(json);
     console.log(res);
@@ -48,7 +48,7 @@ export const signOut = () => {
 
 export const loadUser = () => {
   return (dispatch, getState) => {
-    const token = getState().auth.token;
+    const token = getState().users.token;
     if (token) {
       dispatch({
         type: "USER_LOADED",
@@ -57,34 +57,18 @@ export const loadUser = () => {
     } else return null;
   };
 };
-export const update=(user)=>async (dispatch, getState)=>{
+
+export const updateUser = (id, data) => async (dispatch) => {
   try {
-    dispatch({ type: "USER_UPDATE_REQUEST" });
+    const res = await UserService.update(id, data);
 
-    const {
-      userLogin: { userInfo },
-    } = getState();
+    dispatch({
+      type: "UPDATE_USER",
+      payload: res.data,
+    });
 
-    const config = {
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${userInfo.token}`,
-      },
-    };
-   const {data}= await  UserService.update(user,config); 
-   dispatch({ type:"USER_UPDATE_SUCCESS" , payload: data });
-
-   dispatch({ type: "USER_LOGIN_SUCCESS", payload: data });
-
-   localStorage.setItem("userInfo", JSON.stringify(data));
- } catch (error) {
-   dispatch({
-     type: "USER_UPDATE_FAIL",
-     payload:
-       error.response && error.response.data.message
-         ? error.response.data.message
-         : error.message,
-   });
- }
-
-}
+    return Promise.resolve(res.data);
+  } catch (err) {
+    return Promise.reject(err);
+  }
+};

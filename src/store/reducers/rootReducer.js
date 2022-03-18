@@ -3,7 +3,7 @@ import authReducer from './authReducer';
 import boxReducer from './boxReducer';
 import cabineReducer from './cabineReducer';
 const rootReducer = combineReducers({ 
-    auth: authReducer,
+    users: authReducer,
     boxe: boxReducer,
     cabines: cabineReducer,
 })

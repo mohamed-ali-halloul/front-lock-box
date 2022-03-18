@@ -6,8 +6,8 @@ return http.post("/connexion",data);}
 const SignUp = (data)=> {
     return http.post("/inscription",data)
 }
-const update=(id)=>{
-return http.put("/",id);
+const update=(id, data)=>{
+return http.put(`/${id}`,data);
 }
 
 const UserService ={

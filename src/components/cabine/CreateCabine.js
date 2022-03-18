@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Typography, Input, Button, Form } from "antd";
 import { CreateCabine } from "../../store/actions/cabineActions";
 import { Redirect } from "react-router-dom";
-
+import "./CreateCabine.css";
 const AddCabine = () => {
   // const navigate = useNavigate();
   const cabines = useSelector((state) => state.cabines);
@@ -45,10 +45,13 @@ const AddCabine = () => {
           onChange={(e) => setCabine({ ...cabine, name: e.target.value })}
         />
   </Form.Item>
-        <Button variant="contained" color="primary" type="submit" onClick={handleSubmit}>
+  <div className="btn3">        <Button variant="contained" color="primary" type="submit" onClick={handleSubmit}>
           Create
+       
         </Button>
-      </Form>
+  
+      </div>
+    </Form>
     </>
   );
 };

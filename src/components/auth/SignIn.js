@@ -9,7 +9,7 @@ import { login } from "../../store/actions/authActions";
 const SignIn = () => {
   const history = useHistory();
 
-  const auth = useSelector((state) => state.auth);
+  const user = useSelector((state) => state.users);
   const dispatch = useDispatch();
   const [creds, setCreds] = useState({
     email: "",
@@ -29,7 +29,7 @@ const SignIn = () => {
     setCreds({ email: "", password: "" });
   };
 
-  if (auth._id) return <Redirect to="/" />;
+  if (user.id) return <Redirect to="/" />;
 
   return (
     <>

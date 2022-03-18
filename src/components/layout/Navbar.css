@@ -25,3 +25,12 @@ h1.ant-typography{
 .img{
 padding: 1%;
 }
+.ant-dropdown-link{
+    height: 45px;
+    margin-right: 1%;
+    margin-top: 0.5%;
+    color: #000000;
+}
+a:hover{
+    color: #4fd1b1;
+}

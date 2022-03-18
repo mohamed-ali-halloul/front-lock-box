@@ -1,7 +1,7 @@
 import { toast } from "react-toastify";
 
 const initialState = {  
-
+id:null,
 email: null,
 username: null,
 
@@ -17,6 +17,7 @@ const authReducer = (state = initialState, action) => {
         console.log(action);
         return {
           ...initialState,
+         id:action.payload.id,
          email: action.payload.email,
          username: action.payload.username
          
@@ -32,12 +33,17 @@ const authReducer = (state = initialState, action) => {
           email: null,
           
         };
-      case "USER_UPDATE_REQUEST":
-          return { loading: true };
-      case "USER_UPDATE_SUCCESS":
-          return { loading: false, userInfo: action.payload, success: true };
-      case "USER_UPDATE_FAIL":
-          return { loading: false, error: action.payload, success: false };
+      case "UPDATE_USER":
+          return state.map((user) => {
+            if (user.id === action.payload.id) {
+              return {
+                ...user,
+                ...action.payload,
+              };
+            } else {
+              return user;
+            }
+          });
 
       
       default:
