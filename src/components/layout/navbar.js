@@ -11,6 +11,7 @@ const NavBar = () => {
   const history = useHistory();
   const dispatch = useDispatch();
   const state = useSelector((state) => state);
+  console.log("---------------------------")
   console.log(state);
   const user = useSelector((state) => state.users);
   const handleSignOut = () => {

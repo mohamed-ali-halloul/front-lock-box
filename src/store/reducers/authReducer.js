@@ -34,18 +34,28 @@ const authReducer = (state = initialState, action) => {
           
         };
       case "UPDATE_USER":
-          return state.map((user) => {
-            if (user.id === action.payload.id) {
-              return {
-                ...user,
-                ...action.payload,
-              };
-            } else {
-              return user;
-            }
-          });
+          // return state.map((user) => {
+          //   if (user.id === action.payload.id) {
+          //     return {
+          //       ...user,
+          //       ...action.payload,
+          //     };
+          //   } else {
+          //     return user;
+          //   }
+          // });
+          const user= state 
+          console.log("***********************")
+          console.log(user);
 
-      
+          if (user.id === action.payload.id) {
+                return {
+                  ...user,
+                  ...action.payload,
+                };
+              } else {
+                return user;
+              }
       default:
         return state;
     }

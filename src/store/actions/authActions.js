@@ -19,7 +19,7 @@ export const signUp = (username, email, password) => async (dispatch) => {
 
 export const login = (email, password) => async (dispatch) => {
   try {
-    const res = await UserService.login({  email, password });
+    const res = await UserService.login({ email, password });
     var json = JSON.stringify(res.data.token);
     console.log(json);
     console.log(res);

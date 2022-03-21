@@ -78,7 +78,7 @@ const ListBoxes = () => {
       dataIndex: 'name',
       defaultSortOrder: 'descend',
       onFilter: (value, record) => record.name.indexOf(value) === 0,
-      sorter: (a, b) => a.name.length - b.name.length,
+      // sorter: (a, b) => a.name.length - b.name.length,
     },
     {
       title: 'size',
