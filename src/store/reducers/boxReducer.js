@@ -1,29 +1,28 @@
 import { toast } from "react-toastify";
 
-const initialState={box:[]};
+const initialState=[];
 
 const boxReducer = (state=initialState, action) => {
-   const {type,payload}=action;
+   const {type,payload,key}=action;
     switch(type){
         case "CREATE_BOX" :
             toast.success("create successfully...", {
                 position: toast.POSITION.BOTTOM_RIGHT,
               });
-            return {...state, box:[...state.box,payload]};
+            return [...state, payload];
         case "READ_BOX" :
-            return {...state,
-            box:payload};
+            return payload;
                 
               
         case "UPDATE_BOX" :
             toast.success("box updated...",{
                 position : toast.POSITION.BOTTOM_RIGHT,
               });
-              return state.map((box) =>{
-             if( box.id === payload.id )
-             {return {...box,
+              return state.map((boxe) =>{
+             if( boxe.id === key )
+             {return {...boxe,
                         ...payload};
-             }else{ return box;}
+             }else{ return boxe;}
 
     });
         case "DELETE_BOX":
@@ -32,7 +31,8 @@ const boxReducer = (state=initialState, action) => {
               }) ;
               
               
-            return { ...state, box:Object.values(state.box).filter(({id}) => id !== payload.id)};     
+            // return { ...state, box:Object.values(state.box).filter(({id}) => id !== payload.id)};     
+            return state.filter(({id})=> id !== payload.id);
         case "DELETE_ALL":
             return [];
                

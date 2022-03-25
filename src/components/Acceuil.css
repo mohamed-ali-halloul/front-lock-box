@@ -1,25 +1,22 @@
-.acc{
-    border-radius: 50px;
-   border: 2px solid rgb(204, 204, 204);
-   background-color: #4fd1b10d;
-   
-    }
-.d1{
-    width: 30%;
-   margin-top: 2%;
-   margin-left: 35%;  
-
-    padding: 1%;
-font-weight: 200;}
-.im1{
-    margin-top: 5%;
-    margin-left: 35%;  
-
+.acc {
+  border-radius: 50px;
+  border: 2px solid rgb(204, 204, 204);
+  background-color: #4fd1b10d;
 }
-.img1{
-  
-  
-    width: 300px;
-    height: auto;
-    
+.d1 {
+  width: 30%;
+  margin-top: 2%;
+  margin-left: 9%;
+  padding: 1%;
+  font-weight: 200;
+}
+.titre {
+  color: #4fd1b1;
+}
+.im1 {
+  margin-left: 10%;
+}
+.img1 {
+  width: 300px;
+  height: auto;
 }

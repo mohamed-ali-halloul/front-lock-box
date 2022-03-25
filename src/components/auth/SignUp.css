@@ -1,23 +1,28 @@
-.ant-col-6{
-   display: flex;
-   
+.ant-col-6 {
+  display: flex;
 }
-.ant-form-item-label{
-font-size: large;
+.ant-form-item-label {
+  font-size: large;
 }
-.d{
-   border-radius: 50px;
-   border: 2px solid rgb(204, 204, 204);
-   background-color: #4fd1b10d;
-   width: auto;
-   
+.d {
+  border-radius: 50px;
+  border: 2px solid rgb(204, 204, 204);
+  background-color: #4fd1b10d;
+  width: auto;
 }
-.t{
-   margin-top: 10%;
-   margin-left: 35%; 
+.t {
+  margin-top: 2%;
+  margin-left: 10%;
+}
+.d2 {
+  margin-left: -8%;
+}
+.img11 {
+  margin-left: 10%;
+}
+.titre1{
+   color: #4fd1b1;
 
-}
-.d2{
-   margin-left: 20%; 
- 
+   margin-left: 10%;
+   margin-top: 3%;
 }

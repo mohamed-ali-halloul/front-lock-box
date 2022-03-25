@@ -1,15 +1,14 @@
 import react, { useState, useEffect } from "react";
 import { Typography, Button, Form, Input } from "antd";
 import { useDispatch, useSelector } from "react-redux";
-import { updateUser } from "../store/actions/authActions";
+import { updateUser } from "../../store/actions/authActions";
 const Profile = () => {
   const dispatch = useDispatch();
   const state = useSelector((state) => state);
- 
+
   const userState = useSelector((state) => state.users);
-  console.log("--------------------fdhhgf-------");
   console.log(userState);
- 
+
   const update = () => {
     console.log(userState);
     dispatch(updateUser(userState.id, userState))
@@ -37,7 +36,9 @@ const Profile = () => {
         <Form.Item
           label="Update the Username"
           name="Updatetheusername"
-          onChange={(e)=>{userState.username=e.target.value}}
+          onChange={(e) => {
+            userState.username = e.target.value;
+          }}
           rules={[{ message: "Please input the new username!" }]}
         >
           <Input />
@@ -59,7 +60,6 @@ const Profile = () => {
       </Form>
       <div>
         <Button primary onClick={() => update()}>
-          {" "}
           Update
         </Button>
       </div>

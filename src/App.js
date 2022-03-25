@@ -14,7 +14,7 @@ import { loadBox } from "./store/actions/boxActions";
 import LayoutDashboard from "./components/layout/dashboardlayout";
 import ListBoxes from "./components/box/ReadBoxes";
 import ListCabines from "./components/cabine/ReadCabines";
-import Profile from "./components/Profile";
+import Profile from "./components/auth/Profile";
 import Acceuil from "./components/Acceuil";
 function App() {
   const dispatch = useDispatch();
@@ -31,24 +31,27 @@ function App() {
         <ToastContainer />
 
         <Switch>
-       
-            <Route path="/" exact component={Acceuil}/>
-            {/* <Route path="/connexion" component={SignIn} /> */}
-            <Route path="/signup" component={SignUp} />
-            
+          <Route path="/" exact component={Acceuil} />
+          {/* <Route path="/connexion" component={SignIn} /> */}
+          <Route path="/signup" component={SignUp} />
 
-            <LayoutDashboard>
+          <LayoutDashboard>
             <PrivateRoute>
-              <Route path="/home"exact component={Home} />
-              <Route path="/profile"exact component={Profile} />
-              <Route path="/createbox"exact component={AddBox} />
-              
+              <Route path="/home" exact component={Home} />
+              <Route path="/profile" exact component={Profile} />
+              <Route path="/createbox" exact component={AddBox} />
+
               <Route path="/readboxes" exact component={ListBoxes} />
               <Route path="/createcabine" exact component={AddCabine} />
               <Route path="/readcabines" exact component={ListCabines} />
             </PrivateRoute>
           </LayoutDashboard>
-          <Route path="*" component={()=>{return <p>ERREUR 404 </p>} }/>
+          <Route
+            path="*"
+            component={() => {
+              return <p>ERREUR 404 </p>;
+            }}
+          />
         </Switch>
       </Router>
     </div>

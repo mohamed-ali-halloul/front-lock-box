@@ -5,6 +5,7 @@ const getAll =(data)=> {
     return http.get("/",data);
 }
 const update= (id,data)=> {
+    console.log("id"+id+"data"+data);
     return http.put(`/${id}`,data);
 }
 const Delete=(id)=> {

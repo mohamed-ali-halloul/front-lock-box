@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Typography, Input, Button, Form, InputNumber, Select } from "antd";
+import { Typography, Input, Button, Form, Select } from "antd";
 import { CreateBox } from "../../store/actions/boxActions";
-import { Redirect } from "react-router-dom";
 import CabineService from "../../api/cabine/services";
 import "./CreateBox.css";
 const AddBox = () => {
@@ -51,15 +50,19 @@ const AddBox = () => {
 
   return (
     <>
-      <Form name="basic"
-      labelCol={{ span: 5 }}
-      wrapperCol={{ span: 16 }} noValidate autoComplete="off" onSubmit={handleSubmit}>
+      <Form
+        name="basic"
+        labelCol={{ span: 5 }}
+        wrapperCol={{ span: 16 }}
+        noValidate
+        autoComplete="off"
+        onSubmit={handleSubmit}
+      >
         <Typography variant="h5">Create Box</Typography>
         <Form.Item label="Reference">
           <Input
             id="enter-ref"
             variant="outlined"
-            fullWidth
             value={box.ref}
             onChange={(e) => setBox({ ...box, ref: e.target.value })}
           />
@@ -68,7 +71,6 @@ const AddBox = () => {
           <Input
             id="enter-name"
             variant="outlined"
-            fullWidth
             value={box.name}
             onChange={(e) => setBox({ ...box, name: e.target.value })}
           />
@@ -113,7 +115,6 @@ const AddBox = () => {
             id="enter-idcabine"
             label="enterIdcabine"
             variant="outlined"
-            fullWidth
             onChange={onChangecabine}
           >
             {cabines?.length &&
@@ -122,10 +123,10 @@ const AddBox = () => {
               })}
           </Select>
         </Form.Item>
-          <div className="btn1">
-        <Button type="primary" htmlType="submit" onClick={handleSubmit}>
-          Create
-        </Button>
+        <div className="btn1">
+          <Button type="primary" htmlType="submit" onClick={handleSubmit}>
+            Create
+          </Button>
         </div>
       </Form>
     </>

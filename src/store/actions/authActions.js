@@ -64,7 +64,7 @@ export const updateUser = (id, data) => async (dispatch) => {
 
     dispatch({
       type: "UPDATE_USER",
-      payload: res.data,
+      payload: data,
     });
 
     return Promise.resolve(res.data);
