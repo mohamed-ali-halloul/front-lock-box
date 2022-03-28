@@ -4,7 +4,7 @@ import {
     
     SnippetsOutlined,
     InboxOutlined,
-    
+    EuroOutlined,
   } from '@ant-design/icons';
 import {useHistory, Link}  from 'react-router-dom';
 import './SideBar.css';
@@ -28,7 +28,9 @@ const SideBar= () => {
     const handleCabinesClick=()=>{
       history.push('/readcabines');
     }
-   
+   const handlecreateTarifClick=()=>{
+     history.push('/createTarif')
+   }
   return (
       <div >
         <div style={{margin: "8px"}}></div>
@@ -52,7 +54,10 @@ const SideBar= () => {
             <Menu.Item key="9" onClick={handlecabineClick}>Create Cabine</Menu.Item>
             <Menu.Item key="11" onClick={handleCabinesClick}>Cabines</Menu.Item>
           </SubMenu>
-        
+          <SubMenu key="sub3" icon={<EuroOutlined />} title="Tarif">
+            <Menu.Item key="9" onClick={handlecreateTarifClick}>Create Tarif</Menu.Item>
+            <Menu.Item key="11" >Tarifs</Menu.Item>
+          </SubMenu>
         </Menu>
         </div>
   );

@@ -76,39 +76,7 @@ const AddBox = () => {
           />
         </Form.Item>
 
-        <Form.Item label="size">
-          {/* <Select
-            id="enter-size"
-            variant="outlined"
-            onChange={(e) => {console.log(e.target.value); }}
-          >
-            <Option value="Small">Small</Option>
-            <Option value="Meduim">Meduim</Option>
-            <Option value="Big">Big</Option>
-          </Select> */}
-          <Select
-            showSearch
-            placeholder="Select a size"
-            optionFilterProp="children"
-            onChange={onChange}
-            onSearch={onSearch}
-            filterOption={(input, option) =>
-              option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
-            }
-          >
-            <Option value="Small">Small</Option>
-            <Option value="Medium">Medium</Option>
-            <Option value="Big">Big</Option>
-          </Select>
-          ,
-        </Form.Item>
-        <Form.Item label="Price">
-          <input
-            type="number"
-            value={box.price}
-            onChange={(e) => setBox({ ...box, price: e.target.value })}
-          />
-        </Form.Item>
+        
         <Form.Item label="Cabine Id">
           <Select
             placeholder="cabine id"

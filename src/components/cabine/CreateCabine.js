@@ -9,6 +9,9 @@ const AddCabine = () => {
   const [cabine, setCabine] = useState({
     ref: "",
     name: "",
+    network_type:"",
+    mode:"",
+    shortLink:""
   });
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -43,6 +46,33 @@ const AddCabine = () => {
             variant="outlined"
             value={cabine.name}
             onChange={(e) => setCabine({ ...cabine, name: e.target.value })}
+          />
+        </Form.Item>
+        <Form.Item label="network Type">
+          <Input
+            id="enter-network_type"
+            label="enternetwork_type"
+            variant="outlined"
+            value={cabine.network_type}
+            onChange={(e) => setCabine({ ...cabine, network_type: e.target.value })}
+          />
+        </Form.Item>
+        <Form.Item label="mode">
+          <Input
+            id="enter-mode"
+            label="entermode"
+            variant="outlined"
+            value={cabine.mode}
+            onChange={(e) => setCabine({ ...cabine, mode: e.target.value })}
+          />
+        </Form.Item>
+        <Form.Item label="short Link">
+          <Input
+            id="enter-shortLink"
+            label="entershortLink"
+            variant="outlined"
+            value={cabine.shortLink}
+            onChange={(e) => setCabine({ ...cabine, shortLink: e.target.value })}
           />
         </Form.Item>
         <div className="btn3">

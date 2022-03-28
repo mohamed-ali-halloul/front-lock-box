@@ -1,7 +1,7 @@
 import { toast } from "react-toastify";
 import CabineService from "../../api/cabine/services";
-export const CreateCabine = (ref, name) => async (dispatch) => {
-  return CabineService.create(ref, name)
+export const CreateCabine = (ref, name,network_type,mode,shortLink) => async (dispatch) => {
+  return CabineService.create(ref, name,network_type,mode,shortLink)
     .then((res) => {
       dispatch({
         type: "CREATE_CABINE",

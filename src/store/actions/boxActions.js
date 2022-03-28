@@ -2,8 +2,8 @@ import { toast } from "react-toastify";
 import BoxService from "../../api/box/services";
 
 export const CreateBox =
-  (ref, name, size, price, id_cabine) => async (dispatch) => {
-    return BoxService.create(ref, name, size, price, id_cabine)
+  (ref, name, id_cabine,status,idsize,code,availibility,boardId,doorNumber) => async (dispatch) => {
+    return BoxService.create(ref, name, status, id_cabine,idsize,code,availibility,boardId,doorNumber)
       .then((res) => {
         dispatch({
           type: "CREATE_BOX",
