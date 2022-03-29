@@ -45,18 +45,18 @@ const SideBar= () => {
               Dashboard
            
               </Menu.Item>
-          <SubMenu key="sub2" icon={<InboxOutlined />} title="Box">
-            <Menu.Item key="5" onClick={handleboxClick}>Create Box </Menu.Item>
-            <Menu.Item key="6" onClick={handleoneboxClick}>Boxes</Menu.Item>
+          <SubMenu key="sub1" icon={<InboxOutlined />} title="Box">
+            <Menu.Item key="1" onClick={handleboxClick}>Create Box </Menu.Item>
+            <Menu.Item key="2" onClick={handleoneboxClick}>Boxes</Menu.Item>
             
           </SubMenu>
-          <SubMenu key="sub3" icon={<InboxOutlined />} title="Cabine">
-            <Menu.Item key="9" onClick={handlecabineClick}>Create Cabine</Menu.Item>
-            <Menu.Item key="11" onClick={handleCabinesClick}>Cabines</Menu.Item>
+          <SubMenu key="sub2" icon={<InboxOutlined />} title="Cabine">
+            <Menu.Item key="3" onClick={handlecabineClick}>Create Cabine</Menu.Item>
+            <Menu.Item key="4" onClick={handleCabinesClick}>Cabines</Menu.Item>
           </SubMenu>
           <SubMenu key="sub3" icon={<EuroOutlined />} title="Tarif">
-            <Menu.Item key="9" onClick={handlecreateTarifClick}>Create Tarif</Menu.Item>
-            <Menu.Item key="11" >Tarifs</Menu.Item>
+            <Menu.Item key="5" onClick={handlecreateTarifClick}>Create Tarif</Menu.Item>
+            <Menu.Item key="6" >Tarifs</Menu.Item>
           </SubMenu>
         </Menu>
         </div>
