@@ -31,6 +31,8 @@ const SideBar= () => {
    const handlecreateTarifClick=()=>{
      history.push('/createTarif')
    }
+   const handleTarif=()=>{
+     history.push('/readtarifs') }
   return (
       <div >
         <div style={{margin: "8px"}}></div>
@@ -56,7 +58,7 @@ const SideBar= () => {
           </SubMenu>
           <SubMenu key="sub3" icon={<EuroOutlined />} title="Tarif">
             <Menu.Item key="5" onClick={handlecreateTarifClick}>Create Tarif</Menu.Item>
-            <Menu.Item key="6" >Tarifs</Menu.Item>
+            <Menu.Item key="6"onClick={handleTarif} >Tarifs</Menu.Item>
           </SubMenu>
         </Menu>
         </div>

@@ -18,6 +18,7 @@ import {
   Popconfirm,
 } from "antd";
 import CabineService from "../../api/cabine/services";
+import SizeService from "../../api/size/services";
 const EditableCell = ({
   editing,
   dataIndex,
@@ -56,6 +57,7 @@ const ListBoxes = () => {
   const [currentBox, setCurrentBox] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(-1);
   const [cabines, setCabines] = useState([]);
+  const [sizes,setSizes]=useState([]);
   const boxes = useSelector((state) => state.boxe);
 
   const [form] = Form.useForm();
@@ -67,6 +69,16 @@ const ListBoxes = () => {
     setCurrentIndex(-1);
   };
   const dispatch = useDispatch();
+  const getSizes=()=>{
+    SizeService.getAll()
+    .then((res)=>{
+      setSizes(res.data);
+      console.log(res.data);
+    })
+    .catch((e)=>{
+      console.log(e);
+    });
+  };
   const getCabines = () => {
     CabineService.getAll()
       .then((res) => {
@@ -81,7 +93,9 @@ const ListBoxes = () => {
   useEffect(() => {
     getCabines();
   }, []);
-
+  useEffect(() => {
+    getSizes();
+  }, []);
   const removeBox = (id) => {
     dispatch(DeleteBox(id))
       .then((response) => {
@@ -108,9 +122,13 @@ const ListBoxes = () => {
     form.setFieldsValue({
       ref: "",
       name: "",
-      size: "",
-      price: "",
+      status:"",
+      code:"",
+      availibility:"",
+      boardId :"",
+      doorNumber:"",
       idcabine: "",
+      idsize:"",
       ...record,
     });
     setEditingKey(record.id);
@@ -190,8 +208,8 @@ const ListBoxes = () => {
       // sorter: (a, b) => a.name.length - b.name.length,
     },
     {
-      title: "size",
-      dataIndex: "size",
+      title: "status",
+      dataIndex: "status",
       editable: true,
 
       filters: [
@@ -204,15 +222,35 @@ const ListBoxes = () => {
           value: "Big",
         },
       ],
-      onFilter: (value, record) => record.size.indexOf(value) === 0,
+      onFilter: (value, record) => record.status.indexOf(value) === 0,
     },
     {
-      title: "price",
-      dataIndex: "price",
+      title: "code",
+      dataIndex: "code",
       editable: true,
 
-      defaultSortOrder: "ascend",
-      sorter: (a, b) => b.Price - a.Price,
+     
+    },
+    {
+      title: "availibility",
+      dataIndex: "availibility",
+      editable: true,
+
+     
+    },
+    {
+      title: "boardId",
+      dataIndex: "boardId",
+      editable: true,
+
+     
+    },
+    {
+      title: "doorNumber",
+      dataIndex: "doorNumber",
+      editable: true,
+
+     
     },
     {
       title: "idcabine",
@@ -221,6 +259,14 @@ const ListBoxes = () => {
 
       defaultSortOrder: "descend",
       sorter: (a, b) => a.idcabine - b.idcabine,
+    },
+    {
+      title: "idsize",
+      dataIndex: "idsize",
+      editable: true,
+
+      defaultSortOrder: "descend",
+      sorter: (a, b) => a.idsize - b.idsize,
     },
     {
       title: "action",

@@ -90,6 +90,9 @@ const ListCabines = () => {
     form.setFieldsValue({
       ref: "",
       name: "",
+      network_type:"",
+    mode:"",
+    shortLink:"",
       ...record,
     });
     console.log("record ::", record);
@@ -152,6 +155,30 @@ const ListCabines = () => {
       defaultSortOrder: "descend",
       onFilter: (value, record) => record.name.indexOf(value) === 0,
       // sorter: (a, b) => a.name.length - b.name.length,
+    },
+    {
+      title: "network_type",
+      dataIndex: "network_type",
+      editable: true,
+      defaultSortOrder: "descend",
+      onFilter: (value, record) => record.network_type.indexOf(value) === 0,
+      // sorter: (a, b) => a.network_type.length - b.network_type.length,
+    },
+    {
+      title: "mode",
+      dataIndex: "mode",
+      editable: true,
+      defaultSortOrder: "descend",
+      onFilter: (value, record) => record.mode.indexOf(value) === 0,
+      // sorter: (a, b) => a.mode.length - b.mode.length,
+    },
+    {
+      title: "shortLink",
+      dataIndex: "shortLink",
+      editable: true,
+      defaultSortOrder: "descend",
+      onFilter: (value, record) => record.shortLink.indexOf(value) === 0,
+      // sorter: (a, b) => a.shortLink.length - b.shortLink.length,
     },
     {
       title: "action",

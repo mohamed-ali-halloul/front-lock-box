@@ -17,6 +17,7 @@ import ListCabines from "./components/cabine/ReadCabines";
 import Profile from "./components/auth/Profile";
 import Acceuil from "./components/Acceuil";
 import AddTarif from "./components/tarif/CreateTarif";
+import ListTarifs from "./components/tarif/ReadTarif";
 function App() {
   const dispatch = useDispatch();
 
@@ -46,6 +47,7 @@ function App() {
               <Route path="/createcabine" exact component={AddCabine} />
               <Route path="/readcabines" exact component={ListCabines} />
               <Route path="/createTarif" exact component={AddTarif} />
+              <Route path="/readtarifs" exact component ={ListTarifs} />
             </PrivateRoute>
           </LayoutDashboard>
           <Route
