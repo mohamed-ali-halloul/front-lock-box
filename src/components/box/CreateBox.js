@@ -26,7 +26,7 @@ const AddBox = () => {
     status:"",
     code:"",
     availibility:"",
-    boardId :"",
+    boardID :"",
     doorNumber:"",
     idcabine: "",
     idsize:""
@@ -59,7 +59,7 @@ const AddBox = () => {
   }, []);
   const handleSubmit = (e) => {
     e.preventDefault();
-    box.ref=box.boardId+box.doorNumber;
+    box.ref=box.boardID+box.doorNumber;
     console.log("ref",box);
     dispatch(CreateBox(box));
   };
@@ -79,8 +79,8 @@ const AddBox = () => {
           <Input
             id="enter-boardId"
             variant="outlined"
-            value={box.boardId}
-            onChange={(e) => setBox({ ...box, boardId: e.target.value })}
+            value={box.boardID}
+            onChange={(e) => setBox({ ...box, boardID: e.target.value })}
           />
         </Form.Item>
         <Form.Item label="doorNumber">
@@ -131,6 +131,8 @@ const AddBox = () => {
         <Form.Item label="availibility" >
         <InputNumber
                   // type="number" 
+                  min={0}
+                  max={1}
                   id="enter_availibility"
                   variant="outlined"
                   value={box.availibility}
@@ -167,7 +169,7 @@ const AddBox = () => {
           </Select>
         </Form.Item>
         <div className="btn1">
-          <Button type="primary" htmlType="submit" onClick={handleSubmit}>
+          <Button  htmlType="submit" onClick={handleSubmit}>
             Create
           </Button>
         </div>

@@ -16,74 +16,81 @@ import {
   InputNumber,
   Form,
   Popconfirm,
+  Tag,
 } from "antd";
 import CabineService from "../../api/cabine/services";
 import SizeService from "../../api/size/services";
-const EditableCell = ({
-  editing,
-  dataIndex,
-  title,
-  inputType,
-  record,
-  index,
-  children,
-  ...restProps
-}) => {
-  const inputNode = inputType === "number" ? <InputNumber /> : <Input />;
-  return (
-    <td {...restProps}>
-      {editing ? (
-        <Form.Item
-          name={dataIndex}
-          style={{
-            margin: 0,
-          }}
-          rules={[
-            {
-              required: true,
-              message: `Please Input ${title}!`,
-            },
-          ]}
-        >
-          {inputNode}
-        </Form.Item>
-      ) : (
-        children
-      )}
-    </td>
-  );
-};
+
 const ListBoxes = () => {
   const [currentBox, setCurrentBox] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(-1);
   const [cabines, setCabines] = useState([]);
-  const [sizes,setSizes]=useState([]);
+
+  const [sizes, setSizes] = useState([]);
   const boxes = useSelector((state) => state.boxe);
 
   const [form] = Form.useForm();
   const [data, setData] = useState(boxes);
   const [editingKey, setEditingKey] = useState("");
 
+  const EditableCell = ({
+    editing,
+    dataIndex,
+    title,
+    inputType,
+    record,
+    index,
+    children,
+    ...restProps
+  }) => {
+    const inputNode = inputType === "number" ? <InputNumber /> : <Input />;
+    return (
+      <td {...restProps}>
+        {editing ? (
+          <Form.Item
+            name={dataIndex}
+            style={{
+              margin: 0,
+            }}
+            rules={[
+              {
+                required: true,
+                message: `Please Input ${title}!`,
+              },
+            ]}
+          >
+            {inputNode}
+          </Form.Item>
+        ) : (
+          children
+        )}
+      </td>
+    );
+  };
+  console.log("boxes", boxes);
   const refreshData = () => {
     setCurrentBox(null);
     setCurrentIndex(-1);
   };
+  useEffect(() => {
+    dispatch(ReadBox());
+  }, []);
   const dispatch = useDispatch();
-  const getSizes=()=>{
+  const getSizes = () => {
     SizeService.getAll()
-    .then((res)=>{
-      setSizes(res.data);
-      console.log(res.data);
-    })
-    .catch((e)=>{
-      console.log(e);
-    });
+      .then((res) => {
+        setSizes(res.data);
+        console.log(res.data);
+      })
+      .catch((e) => {
+        console.log(e);
+      });
   };
   const getCabines = () => {
     CabineService.getAll()
       .then((res) => {
-        setCabines(res.data);
-        console.log(res.data);
+        setCabines(res.data[0]);
+        console.log(cabines);
       })
       .catch((e) => {
         console.log(e);
@@ -122,13 +129,13 @@ const ListBoxes = () => {
     form.setFieldsValue({
       ref: "",
       name: "",
-      status:"",
-      code:"",
-      availibility:"",
-      boardId :"",
-      doorNumber:"",
+      status: "",
+      code: "",
+      availibility: "",
+      boardID: "",
+      doorNumber: "",
       idcabine: "",
-      idsize:"",
+      idsize: "",
       ...record,
     });
     setEditingKey(record.id);
@@ -177,20 +184,6 @@ const ListBoxes = () => {
           text: "sou005",
           value: "sou005",
         },
-        {
-          text: "Submenu",
-          value: "Submenu",
-          children: [
-            {
-              text: "Green",
-              value: "Green",
-            },
-            {
-              text: "Black",
-              value: "Black",
-            },
-          ],
-        },
       ],
       // specify the condition of filtering result
       // here is that finding the name started with `value`
@@ -212,61 +205,43 @@ const ListBoxes = () => {
       dataIndex: "status",
       editable: true,
 
-      filters: [
-        {
-          text: "Small",
-          value: "Small",
-        },
-        {
-          text: "Big",
-          value: "Big",
-        },
-      ],
       onFilter: (value, record) => record.status.indexOf(value) === 0,
     },
     {
       title: "code",
       dataIndex: "code",
       editable: true,
-
-     
     },
     {
       title: "availibility",
       dataIndex: "availibility",
       editable: true,
-
-     
     },
     {
-      title: "boardId",
-      dataIndex: "boardId",
+      title: "boardID",
+      dataIndex: "boardID",
       editable: true,
-
-     
     },
     {
       title: "doorNumber",
       dataIndex: "doorNumber",
       editable: true,
-
-     
     },
     {
-      title: "idcabine",
-      dataIndex: "idcabine",
+      title: "cabines",
+      key: "cabines",
+      dataIndex: "cabines",
       editable: true,
+      render: (cabines) => <span>{cabines?.ref}</span>,
 
       defaultSortOrder: "descend",
-      sorter: (a, b) => a.idcabine - b.idcabine,
     },
     {
       title: "idsize",
-      dataIndex: "idsize",
+      dataIndex: "sizes",
       editable: true,
-
-      defaultSortOrder: "descend",
-      sorter: (a, b) => a.idsize - b.idsize,
+      render: (sizes) => <span>{sizes?.name}</span>,
+      // defaultSortOrder: "descend",
     },
     {
       title: "action",
@@ -310,10 +285,6 @@ const ListBoxes = () => {
       },
     },
   ];
-
-  useEffect(() => {
-    dispatch(ReadBox());
-  }, []);
 
   const setActiveBox = (box, index) => {
     setCurrentBox(box);

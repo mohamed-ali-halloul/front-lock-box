@@ -22,8 +22,7 @@ export const CreateBox =
 export const ReadBox = () => async (dispatch) => {
   try {
     const res = await BoxService.getAll();
-    console.log("payload :" + res);
-    dispatch({
+        dispatch({
       type: "READ_BOX",
       payload: res.data,
     });

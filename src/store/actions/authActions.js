@@ -72,3 +72,18 @@ export const updateUser = (id, data) => async (dispatch) => {
     return Promise.reject(err);
   }
 };
+export const genererCode = (id, data) => async (dispatch) => {
+  try {
+    console.log(data);
+    const res = await UserService.generercode(id, data);
+    
+    dispatch({
+      type: "CODE_GENERER",
+      payload: data,
+    });
+
+    return Promise.resolve(res.data);
+  } catch (err) {
+    return Promise.reject(err);
+  }
+};

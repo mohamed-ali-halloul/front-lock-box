@@ -10,11 +10,15 @@ const SignUp = (data)=> {
 const update=(id, data)=>{
 return http.put(`/${id}`,data);
 }
-
+const generercode=(id, data)=>{
+    console.log(data);
+ return http.put(`/code/${id}`,data);
+}
 const UserService ={
     login,
     SignUp,
-    update
+    update,
+    generercode
     
 };
 

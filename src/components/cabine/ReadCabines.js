@@ -134,12 +134,16 @@ const ListCabines = () => {
       editable: true,
       filters: [
         {
-          text: "hs001",
-          value: "hs001",
+          text: "M_01",
+          value: "M_01",
         },
         {
-          text: "sou005",
-          value: "sou005",
+          text: "M_02",
+          value: "M_02",
+        },
+        {
+          text: "M_03",
+          value: "M_03",
         },
       ],
       // specify the condition of filtering result

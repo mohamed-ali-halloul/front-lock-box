@@ -1,11 +1,12 @@
 import react, { useState, useEffect } from "react";
 import { Typography, Button, Form, Input } from "antd";
 import { useDispatch, useSelector } from "react-redux";
-import { updateUser } from "../../store/actions/authActions";
+import { updateUser, genererCode } from "../../store/actions/authActions";
 const Profile = () => {
   const dispatch = useDispatch();
   const state = useSelector((state) => state);
-
+ const [code,setCode]=useState("")
+  ;
   const userState = useSelector((state) => state.users);
   console.log(userState);
 
@@ -19,6 +20,16 @@ const Profile = () => {
         console.log(e);
       });
   };
+  const generer=()=>{
+    console.log(code);
+    dispatch(genererCode(userState.id,{code}))
+    .then((response) => {
+      console.log(response);
+    })
+    .catch((e) => {
+      console.log(e);
+    });
+  }
   return (
     <div>
       <Typography.Title>Profile</Typography.Title>
@@ -62,6 +73,23 @@ const Profile = () => {
         <Button primary onClick={() => update()}>
           Update
         </Button>
+      </div>
+      <div>
+       <h2>Generer Code</h2>
+       <Form.Item
+          label="Code"
+          name="Code"
+          rules={[{ message: "Please input the Code!" }]}
+          value={code}
+          onChange={(e) => setCode(e.target.value)}
+        >
+          <Input />
+        </Form.Item>
+        <div>
+        <Button primary onClick={() =>generer()}>
+          Enregistrer le code
+        </Button>
+      </div>
       </div>
     </div>
   );

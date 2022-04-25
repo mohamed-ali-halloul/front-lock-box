@@ -75,6 +75,8 @@ return (
                   type="number" 
                   id="enter_display"
                   variant="outlined"
+                  min={0}
+                  max={1}
                   value={tarif.display}
                   onChange={(e)=>setTarif({...tarif, display: e})}
                  /> 
