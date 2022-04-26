@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {QRCodeSVG} from 'qrcode.react';
+import { saveAs } from "file-saver";
+import html2pdf from 'html2pdf.js';
 
 import {
   Button,
@@ -88,6 +90,11 @@ const ListCabines = () => {
         console.log(e);
       });
   };
+  
+  const downloadQRCode = () => {
+    var element = document.getElementById('qrCodeEl');
+    html2pdf(element);
+  }
   const update = (data, keyid) => {
     dispatch(updateCabine(data, keyid))
       .then((response) => {
@@ -210,8 +217,10 @@ const ListCabines = () => {
     Generer Code QR
     </Button>
   <Modal title="Basic Modal" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
-  <QRCodeSVG value={shortLink} />,
-  </Modal>
+  <QRCodeSVG id="qrCodeEl" value={shortLink} />
+ <Button onClick={downloadQRCode}>download </Button> 
+  ,
+ </Modal>
       </>,
 
       defaultSortOrder: "descend",

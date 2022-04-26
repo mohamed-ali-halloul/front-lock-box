@@ -74,7 +74,7 @@ const AddBox = () => {
         autoComplete="off"
         onSubmit={handleSubmit}
       >
-        <Typography variant="h5">Create Box</Typography>
+        <Typography.Title variant="h5">Create Box</Typography.Title>
         <Form.Item label="boardId">
           <Input
             id="enter-boardId"

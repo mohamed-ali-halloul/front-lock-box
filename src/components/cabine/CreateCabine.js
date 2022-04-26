@@ -29,7 +29,7 @@ const AddCabine = () => {
         autoComplete="off"
         onSubmit={handleSubmit}
       >
-        <Typography variant="h5">Create cabine</Typography>
+        <Typography.Title variant="h5">Create cabine</Typography.Title>
         <Form.Item label="Reference">
           <Input
             id="enter-ref"
@@ -76,7 +76,7 @@ const AddCabine = () => {
           />
         </Form.Item>
         <div className="btn3">
-          {" "}
+          
           <Button variant="contained" type="submit" onClick={handleSubmit}>
             Create
           </Button>

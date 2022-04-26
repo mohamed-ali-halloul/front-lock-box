@@ -16,5 +16,6 @@ import React, {useEffect} from 'react';
     
   
   return (<div>Welcome to Home Page of Lock box </div>
+  
    )};
     

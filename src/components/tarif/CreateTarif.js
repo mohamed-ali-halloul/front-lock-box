@@ -43,14 +43,14 @@ return (
 <>
 <Form
         name="basic"
-        labelCol={{ span: 5 }}
-        wrapperCol={{ span: 16 }}
+        labelCol={{ span: 3}}
+        wrapperCol={{ span: 12 }}
         noValidate
         autoComplete="off"
         onSubmit={handleSubmit}
       >
-                  <Typography variant="h5">Create Tarif</Typography>
-               <div className="grp1">
+                  <Typography.Title  variant="h5">Create Tarif</Typography.Title>
+              
                   <Form.Item label ="duration">
                       <Input
                       id="enter-duration"
@@ -59,7 +59,7 @@ return (
                       onChange={(e)=> setTarif({...tarif, duration: e.target.value})}
                       />
                   </Form.Item>
-                  <Form.Item label="price"  	>
+                  <Form.Item label="price">
                   <InputNumber
                   type="number" 
                   id="enter_price"
@@ -69,7 +69,9 @@ return (
                  /> 
                 
                 </Form.Item>
+                <Form.Item label="Date">
                 <DatePicker onChange={(e)=>{setTarif({...tarif, date_debut: e})}}  />
+                </Form.Item>
                 <Form.Item label="display" >
                   <InputNumber
                   type="number" 
@@ -80,6 +82,7 @@ return (
                   value={tarif.display}
                   onChange={(e)=>setTarif({...tarif, display: e})}
                  /> 
+                 </Form.Item>
                  <Form.Item label="size Id">
           <Select
             placeholder="size id"
@@ -94,8 +97,8 @@ return (
               })}
           </Select>
         </Form.Item>
-                </Form.Item>
-                </div>
+                
+                
                 <div className="btn001">
           <Button type="primary" htmlType="submit" onClick={handleSubmit}>
             Create
