@@ -4,6 +4,7 @@ import { Redirect, useHistory } from "react-router-dom";
 
 import { Form, Input, Button } from "antd";
 import logos from "../layout/Locbox.png";
+import illus from "../layout/illus.png";
 
 import { signUp } from "../../store/actions/authActions";
 
@@ -39,6 +40,7 @@ const SignUp = () => {
     <>
       <div className="d">
         <img src={logos} width={300} className="img11" />
+        <img src={illus} width={500} className="img22"/>
         <h1 className="titre1">Welcome to Lock Box </h1>
         <Form
           name="basic"

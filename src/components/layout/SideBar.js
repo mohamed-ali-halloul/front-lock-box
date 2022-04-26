@@ -38,8 +38,8 @@ const SideBar= () => {
         <div style={{margin: "8px"}}></div>
         <Menu
           mode="inline"
-          defaultSelectedKeys={['3']}
-          defaultOpenKeys={['sub3']}
+          defaultSelectedKeys={['1']}
+      
           style={{ height: '100%', borderRight: 0 }}
         >
              <Menu.Item key="1" onClick={handlehomeClick} style={{textAlign:"left"}} icon={<SnippetsOutlined />}>
@@ -48,7 +48,7 @@ const SideBar= () => {
            
               </Menu.Item>
           <SubMenu key="sub1" icon={<InboxOutlined />} title="Box">
-            <Menu.Item key="1" onClick={handleboxClick}>Create Box </Menu.Item>
+            <Menu.Item key="7" onClick={handleboxClick}>Create Box </Menu.Item>
             <Menu.Item key="2" onClick={handleoneboxClick}>Boxes</Menu.Item>
             
           </SubMenu>

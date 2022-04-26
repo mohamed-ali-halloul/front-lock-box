@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import {QRCodeSVG} from 'qrcode.react';
 
 import {
   Button,
@@ -10,6 +11,7 @@ import {
   Form,
   Space,
   Input,
+  Modal
 } from "antd";
 import "./ReadCabines.css";
 import {
@@ -55,11 +57,23 @@ const EditableCell = ({
 const ListCabines = () => {
   const [currentCabine, setCurrentCabine] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(-1);
+  const [isModalVisible, setIsModalVisible] = useState(false);
+
   const state = useSelector((state) => state);
 
   const cabines = useSelector((state) => state.cabines);
   console.log("fffgdfgf", state.cabines);
+  const showModal = () => {
+    setIsModalVisible(true);
+  };
 
+  const handleOk = () => {
+    setIsModalVisible(false);
+  };
+
+  const handleCancel = () => {
+    setIsModalVisible(false);
+  };
   const [form] = Form.useForm();
   const [data, setData] = useState(cabines);
 
@@ -177,21 +191,30 @@ const ListCabines = () => {
       // sorter: (a, b) => a.mode.length - b.mode.length,
     },
     {
-      title: "shortLink",
-      dataIndex: "shortLink",
-      editable: true,
-      defaultSortOrder: "descend",
-      onFilter: (value, record) => record.shortLink.indexOf(value) === 0,
-      // sorter: (a, b) => a.shortLink.length - b.shortLink.length,
-    },
-    {
       title: "action",
       dataIndex: "id",
       render: (id) => (
         <Space size="middle">
           <Button onClick={() => removeCabine(id)}>Delete</Button>
+         
         </Space>
       ),
+    },
+    {
+      title: "Generer Code QR",
+      key: "shortLink",
+      dataIndex: "shortLink",
+      editable: true,
+      render: (shortLink) =>  <>
+      <Button type="primary" onClick={showModal}>
+    Generer Code QR
+    </Button>
+  <Modal title="Basic Modal" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
+  <QRCodeSVG value={shortLink} />,
+  </Modal>
+      </>,
+
+      defaultSortOrder: "descend",
     },
     {
       title: "operation",
