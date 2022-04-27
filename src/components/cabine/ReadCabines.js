@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {QRCodeSVG} from 'qrcode.react';
-import { saveAs } from "file-saver";
-import html2pdf from 'html2pdf.js';
 
+import * as htmlToImage from 'html-to-image';
+import download from "downloadjs";
 import {
   Button,
   Typography,
@@ -92,8 +92,10 @@ const ListCabines = () => {
   };
   
   const downloadQRCode = () => {
-    var element = document.getElementById('qrCodeEl');
-    html2pdf(element);
+  htmlToImage.toPng(document.getElementById('code'))
+  .then(function (dataUrl) {
+    download(dataUrl, 'code.png');
+  });
   }
   const update = (data, keyid) => {
     dispatch(updateCabine(data, keyid))
@@ -103,6 +105,7 @@ const ListCabines = () => {
       .catch((e) => {
         console.log(e);
       });
+ 
   };
 
   const isEditing = (record) => record.id === editingKey;
@@ -217,7 +220,9 @@ const ListCabines = () => {
     Generer Code QR
     </Button>
   <Modal title="Basic Modal" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
-  <QRCodeSVG id="qrCodeEl" value={shortLink} />
+ 
+  <QRCodeSVG id="code" value={shortLink} />
+  
  <Button onClick={downloadQRCode}>download </Button> 
   ,
  </Modal>
