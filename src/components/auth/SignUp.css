@@ -6,7 +6,7 @@
 }
 .d {
   border-radius: 50px;
-  border: 2px solid rgb(204, 204, 204);
+  border: 2px  rgb(204, 204, 204);
   background-color: #4fd1b10d;
   width: auto;
 }
@@ -27,6 +27,13 @@
    margin-top: 3%;
 }
 .img22{
-  margin-left: 50%;
-  margin-top: 10%;
+  
+  width: 100% !important;
+}
+.box{
+  display: flex;
+justify-content: space-around;
+}
+.cont{
+  width: 100%;
 }

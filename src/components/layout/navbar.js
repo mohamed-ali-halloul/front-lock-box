@@ -22,9 +22,9 @@ const NavBar = () => {
     history.push('/profile');   }
   const menu = (
     <Menu>
-      <Menu.Item key="sub1" onClick={handleProfileClick} style={{color: 'black'}} icon={<UserOutlined /> }>Profile</Menu.Item> 
+      <Menu.Item key="sub10" onClick={handleProfileClick} style={{color: 'black'}} icon={<UserOutlined /> }>Profile</Menu.Item> 
     
-       <Menu.Item key="1" onClick={() => handleSignOut()}>
+       <Menu.Item key="10" onClick={() => handleSignOut()}>
                 <Link to="/"  ><LogoutOutlined />  logout</Link>
               </Menu.Item>
        </Menu>       

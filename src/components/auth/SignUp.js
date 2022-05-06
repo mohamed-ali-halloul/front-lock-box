@@ -23,7 +23,7 @@ const SignUp = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(signUp(user))
+    dispatch(signUp(user.username,user.email,user.password))
       .then((res) => {
         console.log(res);
         history.push("/");
@@ -34,13 +34,14 @@ const SignUp = () => {
     setUser({ username: "", email: "", password: "" });
   };
 
-  if (auth._id) return <Redirect to="/" />;
 
   return (
     <>
       <div className="d">
         <img src={logos} width={300} className="img11" />
-        <img src={illus} width={500} className="img22"/>
+      <div className="box"> 
+       
+        <div className="cont">
         <h1 className="titre1">Welcome to Lock Box </h1>
         <Form
           name="basic"
@@ -100,6 +101,11 @@ const SignUp = () => {
             </Form.Item>
           </div>
         </Form>
+        </div>
+        <div>
+          <img src={illus}  className="img22"/>
+        </div>
+        </div>
       </div>
     </>
   );

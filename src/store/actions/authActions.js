@@ -2,19 +2,21 @@ import { toast } from "react-toastify";
 import UserService from "../../api/user/services";
 
 export const signUp = (username, email, password) => async (dispatch) => {
-  return UserService.SignUp(username, email, password)
-    .then((res) => {
+  try{
+    const res=  await UserService.SignUp(username, email, password);
+    
       dispatch({
         type: "SIGN_UP",
         payload: res.data,
       });
-    })
-    .catch((error) => {
+    return Promise.resolve(res.data);
+    }catch(error) {
       console.log(error.response);
       toast.error(error.response?.data, {
         position: toast.POSITION.BOTTOM_RIGHT,
       });
-    });
+      return Promise.reject(error);
+    }
 };
 
 export const login = (email, password) => async (dispatch) => {
