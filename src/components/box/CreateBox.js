@@ -24,7 +24,6 @@ const AddBox = () => {
     ref: "",
     name: "",
     status:"",
-    code:"",
     availibility:"",
     boardID :"",
     doorNumber:"",
@@ -119,14 +118,14 @@ const AddBox = () => {
             onChange={(e) => setBox({ ...box, status: e.target.value })}
           />
         </Form.Item>
-        <Form.Item label="code">
+        {/* <Form.Item label="code">
           <Input
             id="enter-code"
             variant="outlined"
             value={box.code}
             onChange={(e) => setBox({ ...box, code: e.target.value })}
           />
-        </Form.Item>
+        </Form.Item> */}
        
         <Form.Item label="availibility" >
         <InputNumber

@@ -11,7 +11,7 @@ const AddCabine = () => {
     name: "",
     network_type:"",
     mode:"",
-    shortLink:""
+   
   });
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -66,15 +66,7 @@ const AddCabine = () => {
             onChange={(e) => setCabine({ ...cabine, mode: e.target.value })}
           />
         </Form.Item>
-        <Form.Item label="short Link">
-          <Input
-            id="enter-shortLink"
-            label="entershortLink"
-            variant="outlined"
-            value={cabine.shortLink}
-            onChange={(e) => setCabine({ ...cabine, shortLink: e.target.value })}
-          />
-        </Form.Item>
+      
         <div className="btn3">
           
           <Button variant="contained" type="submit" onClick={handleSubmit}>

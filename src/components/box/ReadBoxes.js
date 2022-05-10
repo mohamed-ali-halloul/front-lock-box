@@ -115,8 +115,10 @@ const ListBoxes = () => {
   };
   const update = (data, keyid) => {
     console.log(data);
+    data.ref=data.boardID+data.doorNumber;
     dispatch(UpdateBox(data, keyid))
       .then((response) => {
+
         console.log(response);
       })
       .catch((e) => {
@@ -164,6 +166,7 @@ const ListBoxes = () => {
         setEditingKey("");
       }
       console.log(record, row, newData);
+
       update(row, editingKey);
     } catch (errInfo) {
       console.log("Validate Failed:", errInfo);
@@ -173,12 +176,12 @@ const ListBoxes = () => {
     {
       title: "ref",
       dataIndex: "ref",
-      editable: true,
+      // editable: true,
 
       filters: [
         {
-          text: "hs001",
-          value: "hs001",
+          text: "12",
+          value: "12",
         },
         {
           text: "sou005",
@@ -210,7 +213,7 @@ const ListBoxes = () => {
     {
       title: "code",
       dataIndex: "code",
-      editable: true,
+      // editable: true,
     },
     {
       title: "availibility",
@@ -231,15 +234,15 @@ const ListBoxes = () => {
       title: "cabines",
       key: "cabines",
       dataIndex: "cabines",
-      editable: true,
+     
       render: (cabines) => <span>{cabines?.ref}</span>,
 
       defaultSortOrder: "descend",
     },
     {
-      title: "idsize",
+      title: "sizes",
       dataIndex: "sizes",
-      editable: true,
+     
       render: (sizes) => <span>{sizes?.name}</span>,
       // defaultSortOrder: "descend",
     },
@@ -256,7 +259,7 @@ const ListBoxes = () => {
       title: "operation",
       dataIndex: "id",
       render: (_, record) => {
-        console.log(record);
+       
         const editable = isEditing(record);
         return editable ? (
           <span>
