@@ -7,7 +7,7 @@
 .d {
   border-radius: 50px;
   border: 2px  rgb(204, 204, 204);
-  background-color: #4fd1b10d;
+  /* background-color: #4fd1b10d; */
   width: auto;
 }
 .t {
@@ -18,7 +18,8 @@
   margin-left: -8%;
 }
 .img11 {
-  margin-left: 10%;
+  margin-left: 6%;
+  margin-top: 3%;
 }
 .titre1{
    color: #4fd1b1;
@@ -28,7 +29,7 @@
 }
 .img22{
   
-  width: 100% !important;
+  width: 75% !important;
 }
 .box{
   display: flex;
@@ -36,4 +37,5 @@ justify-content: space-around;
 }
 .cont{
   width: 100%;
+  margin: 10px 0px 10px 50px;
 }

@@ -15,7 +15,9 @@ const SignIn = () => {
     email: "",
     password: "",
   });
-
+  const handleSignUp = () => {
+    history.push("/signup");
+  };
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(login(creds.email, creds.password))
@@ -66,19 +68,23 @@ const SignIn = () => {
 
           <Form.Item
             wrapperCol={{
-              offset: 8,
+              offset: 5,
               span: 16,
             }}
           >
-            {" "}
+        
+           <div className="btn-8">
+          
             <Button
               variant="contained"
-              color="primary"
+              type="primary" 
               onClick={handleSubmit}
-              type="submit"
+              size="large"
+              block
             >
               SignIn
             </Button>
+            </div>
           </Form.Item>
         </div>
       </Form>

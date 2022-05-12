@@ -49,7 +49,7 @@ const SignUp = () => {
             span: 4,
           }}
           wrapperCol={{
-            span: 8,
+            span: 12,
           }}
           noValidate
           autoComplete="off"
@@ -87,14 +87,15 @@ const SignUp = () => {
             <Form.Item
               wrapperCol={{
                 offset: 4,
-                span: 8,
+                span: 12,
               }}
             >
               <Button
                 variant="contained"
-                color="primary"
-                type="submit"
+                type="primary" 
                 onClick={handleSubmit}
+                block
+                
               >
                 SignUp
               </Button>
