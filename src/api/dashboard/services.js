@@ -29,9 +29,20 @@ const getboxesnumber=()=>{
     console.log(e);
   });
 }
+const getcabinesnumber=()=>{
+  return http.get("/cabines-working")
+  .then(res=>{
+    console.log(res.data);
+    return res;
+  })
+  .catch(e=>{
+    console.log(e);
+  });
+}
 const dashboardService={
     getlistpayment,
     getnumBoxes,
-    getboxesnumber
+    getboxesnumber,
+    getcabinesnumber
 };
 export default dashboardService;

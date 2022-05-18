@@ -11,26 +11,26 @@ const Acceuil = () => {
   };
 
   return (
-    <>    <div className="acc">
-      
-    
-
-        <div className="img1">
-        <Image src={logos} width={300} preview={false} />
+    <>
+      {" "}
+      <div className="acc">
+        <div className="partie1">
+          <div className="img1">
+            <Image src={logos} width={300} preview={false} />
+          </div>
+          <div className="d1">
+            <h1 className="titre">Welcome to Lock Box </h1>
+            <SignIn />
+            <p>
+              Don't have an account please <a onClick={handleSignUp}>SignUp</a>
+            </p>
+          </div>
         </div>
-      <div className="d1">
-        <h1 className="titre">Welcome to Lock Box </h1>
-        <SignIn />
-        <p>
-          Don't have an account please <a onClick={handleSignUp}>SignUp</a>
-        </p>
+        <div className="img2">
+          <Image src={illus} className="imaaag2" preview={false} />
+        </div>
       </div>
-      <div className="img2">
-      <Image src={illus} width={800} preview={false}/>
-      </div>
-    </div>
     </>
-
   );
 };
 export default Acceuil;

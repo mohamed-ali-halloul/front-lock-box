@@ -66,6 +66,7 @@ return (
                   variant="outlined"
                   value={tarif.price}
                   onChange={(e)=>setTarif({...tarif, price: e})}
+                  addonAfter="€"
                  /> 
                 
                 </Form.Item>

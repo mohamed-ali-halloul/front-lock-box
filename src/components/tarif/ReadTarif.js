@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {ReadTarif,deleteAllTarif,deleteTarif,updateTarif
 } from "../../store/actions/tarifActions";
+import SizeService from "../../api/size/services";
+
 import {
     Button,
     Typography,
@@ -10,7 +12,8 @@ import {
     Input,
     InputNumber,
     Form,
-    Popconfirm
+    Popconfirm,
+    Tag
     
 }from "antd";
 const EditableCell = ({
@@ -50,6 +53,8 @@ const EditableCell = ({
   const ListTarifs = () => {
     const [currentTarif, setCurrentTarif] = useState(null);
     const [currentIndex, setCurrentIndex] = useState(-1);
+    const [sizes, setSizes] = useState([]);
+
     const state = useSelector((state) => state);
   
     const tarifs = useSelector((state) => state.tarifs);
@@ -78,9 +83,20 @@ const EditableCell = ({
           console.log(e);
         });
     };
-  
+    const getSizes = () => {
+      SizeService.getAll()
+        .then((res) => {
+          setSizes(res.data);
+          console.log(res.data);
+        })
+        .catch((e) => {
+          console.log(e);
+        });
+    }; 
     const isEditing = (record) => record.id === editingKey;
-  
+    useEffect(() => {
+      getSizes();
+    }, []);
     const edit = (record) => {
       form.setFieldsValue({
         duration :"",
@@ -146,6 +162,7 @@ const EditableCell = ({
       {
         title: "price",
         dataIndex: "price",
+        render : (price)=> <div>{price}€</div>, 
         editable: true,
         defaultSortOrder: "descend",
         onFilter: (value, record) => record.price.indexOf(value) === 0,
@@ -162,17 +179,23 @@ const EditableCell = ({
       {
         title: "display",
         dataIndex: "display",
+        render: (display) => {
+          if (display===1) {
+          return  <Tag color="green">Affiché au client</Tag>; 
+          } else {
+            return <Tag color="red">Masqué</Tag>
+          }
+        },
         editable: true,
         defaultSortOrder: "descend",
         onFilter: (value, record) => record.display.indexOf(value) === 0,
         // sorter: (a, b) => a.display.length - b.display.length,
       },
       {
-        title: "idsize",
-        dataIndex: "idsize",
-        editable: true,
-        defaultSortOrder: "descend",
-        onFilter: (value, record) => record.idsize.indexOf(value) === 0,
+        title: "sizes",
+      dataIndex: "sizes",
+     
+      render: (sizes) => <span>{sizes?.name}</span>,
         // sorter: (a, b) => a.idsize.length - b.idsize.length,
       },
       {
@@ -282,6 +305,7 @@ const EditableCell = ({
               rowClassName="editable-row"
               onChange={onChange}
               pagination={{
+                pageSize: 5,
                 onChange: cancel,
               }}
             />

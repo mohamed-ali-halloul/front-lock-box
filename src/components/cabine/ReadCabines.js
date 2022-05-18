@@ -328,6 +328,7 @@ const ListCabines = () => {
             rowClassName="editable-row"
             onChange={onChange}
             pagination={{
+              pageSize: 5,
               onChange: cancel,
             }}
           />

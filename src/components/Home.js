@@ -11,6 +11,7 @@ import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Resp
   export default function Home (){
    const [count,setCount]=useState(0);
    const[num,setNum]=useState(0);
+   const[nbre,setNbre]=useState(0);
    const[boxesnumber,setBoxesNumber]=useState([]);
    const cabines = useSelector((state) => state.cabines);
    let tabledata={
@@ -37,6 +38,10 @@ useEffect(()=>{console.log(data);},[data]);
      
       setNum(test?.data?.count)
     }
+    const cabinenumber=async()=>{
+      let test = await dashboardService.getcabinesnumber()
+      setNbre(test?.data?.count)
+    }
     const paymentList=async() => {
     
       let test= await dashboardService.getlistpayment()
@@ -50,6 +55,7 @@ useEffect(()=>{console.log(data);},[data]);
       paymentList();
       boxnumber();
       numberboxes();
+      cabinenumber();
     
       console.log(data);
       },[]);
@@ -74,6 +80,16 @@ useEffect(()=>{console.log(data);},[data]);
           <Statistic
             title="BOX RESERVED"
             value={num}
+           prefix={<ExclamationCircleOutlined />}
+            valueStyle={{ color: 'red' }}
+          />
+        </Card>
+      </Col>
+      <Col span={4}>
+        <Card>
+          <Statistic
+            title="CABINE WORKED"
+            value={nbre}
            prefix={<ExclamationCircleOutlined />}
             valueStyle={{ color: 'red' }}
           />

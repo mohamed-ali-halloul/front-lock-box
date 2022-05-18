@@ -20,7 +20,7 @@ import {
 } from "antd";
 import CabineService from "../../api/cabine/services";
 import SizeService from "../../api/size/services";
-
+import "./ReadBoxes.css";
 const ListBoxes = () => {
   const [currentBox, setCurrentBox] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(-1);
@@ -115,10 +115,9 @@ const ListBoxes = () => {
   };
   const update = (data, keyid) => {
     console.log(data);
-    data.ref=data.boardID+data.doorNumber;
+    data.ref = data.boardID + data.doorNumber;
     dispatch(UpdateBox(data, keyid))
       .then((response) => {
-
         console.log(response);
       })
       .catch((e) => {
@@ -180,12 +179,12 @@ const ListBoxes = () => {
 
       filters: [
         {
-          text: "12",
-          value: "12",
+          text: "10",
+          value: "10",
         },
         {
-          text: "sou005",
-          value: "sou005",
+          text: "01",
+          value: "01",
         },
       ],
       // specify the condition of filtering result
@@ -218,6 +217,13 @@ const ListBoxes = () => {
     {
       title: "availibility",
       dataIndex: "availibility",
+      render: (availibility) => {
+        if (availibility===1) {
+        return  <Tag color="red">Box reserved</Tag>; 
+        } else {
+          return <Tag color="green">Box disponible</Tag>
+        }
+      },
       editable: true,
     },
     {
@@ -233,8 +239,16 @@ const ListBoxes = () => {
     {
       title: "cabines",
       key: "cabines",
+      filters: [
+        {
+          text: "M_01",
+          value: (cabines) => {
+            cabines?.ref;
+          },
+        },
+      ],
       dataIndex: "cabines",
-     
+
       render: (cabines) => <span>{cabines?.ref}</span>,
 
       defaultSortOrder: "descend",
@@ -242,7 +256,7 @@ const ListBoxes = () => {
     {
       title: "sizes",
       dataIndex: "sizes",
-     
+
       render: (sizes) => <span>{sizes?.name}</span>,
       // defaultSortOrder: "descend",
     },
@@ -259,7 +273,6 @@ const ListBoxes = () => {
       title: "operation",
       dataIndex: "id",
       render: (_, record) => {
-       
         const editable = isEditing(record);
         return editable ? (
           <span>
@@ -324,27 +337,30 @@ const ListBoxes = () => {
   });
   return (
     <>
-      <Typography.Title>Boxes List:</Typography.Title>
-      <Form form={form} component={false}>
-        <Table
-          components={{
-            body: {
-              cell: EditableCell,
-            },
-          }}
-          bordered
-          dataSource={boxes}
-          columns={mergedColumns}
-          rowClassName="editable-row"
-          onChange={onChange}
-          pagination={{
-            onChange: cancel,
-          }}
-        />
-      </Form>
-      <Button onClick={removeAllBoxes} danger>
-        Delete All
-      </Button>
+      <div className="ss">
+        <Typography.Title>Boxes List:</Typography.Title>
+        <Form form={form} component={false}>
+          <Table
+            components={{
+              body: {
+                cell: EditableCell,
+              },
+            }}
+            bordered
+            dataSource={boxes}
+            columns={mergedColumns}
+            rowClassName="editable-row"
+            onChange={onChange}
+            pagination={{
+              pageSize: 5,
+              onChange: cancel,
+            }}
+          />
+        </Form>
+        <Button onClick={removeAllBoxes} danger>
+          Delete All
+        </Button>
+      </div>
     </>
   );
 };

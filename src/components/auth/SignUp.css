@@ -1,22 +1,23 @@
-.ant-col-6 {
-  display: flex;
-}
+
 .ant-form-item-label {
   font-size: large;
 }
 .d {
   border-radius: 50px;
   border: 2px  rgb(204, 204, 204);
-  /* background-color: #4fd1b10d; */
-  width: auto;
+  
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 .t {
   margin-top: 2%;
   margin-left: 10%;
 }
-.d2 {
+/* .d2 {
   margin-left: -8%;
-}
+} */
 .img11 {
   margin-left: 6%;
   margin-top: 3%;
@@ -27,15 +28,15 @@
    margin-left: 10%;
    margin-top: 3%;
 }
-.img22{
-  
-  width: 75% !important;
-}
-.box{
+
+/* .box{
   display: flex;
 justify-content: space-around;
-}
+} */
 .cont{
   width: 100%;
-  margin: 10px 0px 10px 50px;
+  margin: 20px 0px 0px 50px;
+}
+.partie2{
+  width: 40%;
 }
