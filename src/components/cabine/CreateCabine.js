@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { Typography, Input, Button, Form } from "antd";
+import { Typography, Input, Button, Form, Select  } from "antd";
 import { CreateCabine } from "../../store/actions/cabineActions";
 import "./CreateCabine.css";
 const AddCabine = () => {
   // const navigate = useNavigate();
   const dispatch = useDispatch();
+  const { Option } = Select;
+
   const [cabine, setCabine] = useState({
     ref: "",
     name: "",
@@ -57,7 +59,7 @@ const AddCabine = () => {
             onChange={(e) => setCabine({ ...cabine, network_type: e.target.value })}
           />
         </Form.Item>
-        <Form.Item label="mode">
+        {/* <Form.Item label="mode">
           <Input
             id="enter-mode"
             label="entermode"
@@ -65,8 +67,22 @@ const AddCabine = () => {
             value={cabine.mode}
             onChange={(e) => setCabine({ ...cabine, mode: e.target.value })}
           />
-        </Form.Item>
-      
+        </Form.Item> */}
+       <Form.Item label="mode">
+      <Select  
+      id="enter-mode"
+      label="entermode"
+      variant="outlined"
+      value={cabine.mode}
+      onChange={(e) => setCabine({ ...cabine, mode: e })}
+      >
+      <Option value="WORKING">WORKING</Option>
+      <Option value="OUT_OF_SERVICE">OUT_OF_SERVICE</Option>
+      <Option value="CONFIG" >
+      CONFIG
+      </Option>
+     
+    </Select></Form.Item>
         <div className="btn3">
           
           <Button variant="contained" type="submit" onClick={handleSubmit}>

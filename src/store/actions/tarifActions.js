@@ -1,7 +1,7 @@
 import {toast} from "react-toastify";
 import TarifService from "../../api/tarif/services";
-export const CreateTarif =(duration,price,date_debut,display,idsize)=> async (dispatch)=>{
-    return TarifService.create(duration,price,date_debut,display,idsize)
+export const CreateTarif =(duration,price,display,idsize)=> async (dispatch)=>{
+    return TarifService.create(duration,price,display,idsize)
     .then((res) => {
         dispatch({
           type: "CREATE_TARIF",

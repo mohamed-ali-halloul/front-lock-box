@@ -101,7 +101,6 @@ const EditableCell = ({
       form.setFieldsValue({
         duration :"",
         price:"",
-        date_debut:"",
         display:"",
         idsize:"",
         ...record,
@@ -167,14 +166,6 @@ const EditableCell = ({
         defaultSortOrder: "descend",
         onFilter: (value, record) => record.price.indexOf(value) === 0,
         // sorter: (a, b) => a.price.length - b.price.length,
-      },
-      {
-        title: "date_debut",
-        dataIndex: "date_debut",
-        editable: true,
-        defaultSortOrder: "descend",
-        onFilter: (value, record) => record.date_debut.indexOf(value) === 0,
-        // sorter: (a, b) => a.date_debut.length - b.date_debut.length,
       },
       {
         title: "display",

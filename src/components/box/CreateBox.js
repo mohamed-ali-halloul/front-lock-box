@@ -101,7 +101,7 @@ const AddBox = () => {
 
         </Form.Item> */}
         
-        <Form.Item label="name">
+        <Form.Item label="Box Number">
           <Input
             id="enter-name"
             variant="outlined"
@@ -139,7 +139,7 @@ const AddBox = () => {
                  /> 
                 
                 </Form.Item>
-        <Form.Item label="Cabine Id">
+        <Form.Item label="Cabine Ref">
           <Select
             placeholder="cabine id"
             id="enter-idcabine"
@@ -153,7 +153,7 @@ const AddBox = () => {
               })}
           </Select>
         </Form.Item>
-        <Form.Item label="size Id">
+        <Form.Item label="size ">
           <Select
             placeholder="size id"
             id="enter-idsize"

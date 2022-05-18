@@ -194,7 +194,7 @@ const ListBoxes = () => {
       sortDirections: ["descend"],
     },
     {
-      title: "name",
+      title: "Box Number",
       dataIndex: "name",
       editable: true,
 

@@ -219,7 +219,7 @@ const ListCabines = () => {
       <Button type="primary" onClick={showModal}>
     Generer Code QR
     </Button>
-  <Modal title="Basic Modal" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
+  <Modal title="QR CODE" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
  
   <QRCodeSVG id="code" value={shortLink} />
   

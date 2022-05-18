@@ -15,7 +15,6 @@ const AddTarif=()=>{
     const [tarif,setTarif]=useState({
         duration :"",
         price:null,
-        date_debut:null,
         display:null,
         idsize:""
      });
@@ -69,9 +68,6 @@ return (
                   addonAfter="€"
                  /> 
                 
-                </Form.Item>
-                <Form.Item label="Date">
-                <DatePicker onChange={(e)=>{setTarif({...tarif, date_debut: e})}}  />
                 </Form.Item>
                 <Form.Item label="display" >
                   <InputNumber

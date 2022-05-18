@@ -25,11 +25,14 @@ display: flex;
   margin-left: 10%;
  margin-top: 3%;
 }
-/* .img2{
-  margin-left: 35%;
-  margin-top: -40%;
-} */
+.img2{
+ width:50%;
+ /* height: 100%; */
+}
 .partie1{
   
   width: 40%;
+}
+.imaaag2{
+  width: 120%;
 }
