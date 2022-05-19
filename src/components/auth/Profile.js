@@ -2,6 +2,7 @@ import react, { useState, useEffect } from "react";
 import { Typography, Button, Form, Input } from "antd";
 import { useDispatch, useSelector } from "react-redux";
 import { updateUser, genererCode } from "../../store/actions/authActions";
+import "./Profile.css"
 const Profile = () => {
   const dispatch = useDispatch();
   const state = useSelector((state) => state);
@@ -69,14 +70,22 @@ const Profile = () => {
           <Input.Password />
         </Form.Item>
       </Form>
-      <div>
-        <Button primary onClick={() => update()}>
+      <Form.Item
+      wrapperCol={{
+                    offset: 7,
+                    span: 11,
+                  }}
+                >
+        <Button   type="primary" onClick={() => update()} className="btn-upd">
           Update
         </Button>
-      </div>
+        </Form.Item> 
+    
       <div>
        <h2>Generer Code</h2>
        <Form.Item
+       labelCol={{ span: 5 }}
+       wrapperCol={{ span: 8}}
           label="Code"
           name="Code"
           rules={[{ message: "Please input the Code!" }]}
@@ -85,11 +94,20 @@ const Profile = () => {
         >
           <Input />
         </Form.Item>
-        <div>
-        <Button primary onClick={() =>generer()}>
+        
+        <Form.Item
+                  wrapperCol={{
+                    offset: 7,
+                    span: 8,
+                  }}
+                >
+        
+          
+        <Button type="primary"onClick={() =>generer()}>
           Enregistrer le code
         </Button>
-      </div>
+     
+      </Form.Item>
       </div>
     </div>
   );

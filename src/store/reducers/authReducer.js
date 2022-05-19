@@ -47,7 +47,9 @@ const authReducer = (state = initialState, action) => {
         return user;
       }
     case "CODE_GENERER":
-      
+      toast.success("Code générer", {
+        position: toast.POSITION.BOTTOM_RIGHT,
+      });
       console.log("***********************");
       
       console.log(action.payload.code);

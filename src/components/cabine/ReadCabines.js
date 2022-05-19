@@ -214,17 +214,19 @@ const ListCabines = () => {
       title: "Generer Code QR",
       key: "shortLink",
       dataIndex: "shortLink",
-      editable: true,
+      
       render: (shortLink) =>  <>
       <Button type="primary" onClick={showModal}>
     Generer Code QR
     </Button>
   <Modal title="QR CODE" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
- 
-  <QRCodeSVG id="code" value={shortLink} />
-  
- <Button onClick={downloadQRCode}>download </Button> 
-  ,
+<div className="qrcenter">
+ <div className="qrcode">  
+ <QRCodeSVG id="code" value={shortLink}  />
+ </div>
+
+ <Button onClick={downloadQRCode} className="btn-qr">download </Button> 
+ </div> ,
  </Modal>
       </>,
 

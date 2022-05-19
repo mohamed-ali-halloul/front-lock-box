@@ -97,7 +97,7 @@ return (
                 
                 
                 <div className="btn001">
-          <Button type="primary" htmlType="submit" onClick={handleSubmit}>
+          <Button htmlType="submit" onClick={handleSubmit}>
             Create
           </Button>
         </div>

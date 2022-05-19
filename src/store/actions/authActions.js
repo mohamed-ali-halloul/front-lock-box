@@ -71,6 +71,10 @@ export const updateUser = (id, data) => async (dispatch) => {
 
     return Promise.resolve(res.data);
   } catch (err) {
+    
+    toast.error(err.response.data, {
+      position: toast.POSITION.BOTTOM_RIGHT,
+    });
     return Promise.reject(err);
   }
 };
@@ -86,6 +90,10 @@ export const genererCode = (id, data) => async (dispatch) => {
 
     return Promise.resolve(res.data);
   } catch (err) {
+    
+    toast.error(err.response.data, {
+      position: toast.POSITION.BOTTOM_RIGHT,
+    });
     return Promise.reject(err);
   }
 };

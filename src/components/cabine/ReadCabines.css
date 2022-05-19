@@ -4,3 +4,9 @@
 .ant-pagination-item-active{
     border-color: #4fd1b1;
 }
+.qrcenter{
+    margin-left: 35%;
+}
+.qrcode{
+    margin-bottom: 5%;
+}
