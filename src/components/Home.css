@@ -1,0 +1,19 @@
+.tableau-stats{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.roowwww{
+    display: flex;
+    justify-content: space-around ;
+    align-items: center;
+}
+.titre51{
+    margin-left: 15%;
+}
+.glob{
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    flex-direction: column;
+}

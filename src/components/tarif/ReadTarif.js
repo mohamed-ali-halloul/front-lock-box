@@ -142,21 +142,6 @@ const EditableCell = ({
         title: "duration",
         dataIndex: "duration",
         editable: true,
-        filters: [
-          {
-            text: "hs001",
-            value: "hs001",
-          },
-          {
-            text: "sou005",
-            value: "sou005",
-          },
-        ],
-        // specify the condition of filtering result
-        // here is that finding the name started with `value`
-        onFilter: (value, record) => record.duration.indexOf(value) === 0,
-        sorter: (a, b) => a.duration.length - b.duration.length,
-        sortDirections: ["descend"],
       },
       {
         title: "price",

@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import dashboardService from "../api/dashboard/services";
 import { useSelector } from "react-redux";
 import { ExclamationCircleOutlined } from "@ant-design/icons";
-
+import TarifService from "../api/tarif/services";
 import {
   BarChart,
   Bar,
@@ -15,18 +15,16 @@ import {
   Legend,
   ResponsiveContainer,
 } from "recharts";
-
+import "./Home.css";
 export default function Home() {
   const [count, setCount] = useState(0);
   const [num, setNum] = useState(0);
   const [nbre, setNbre] = useState(0);
   const [boxesnumber, setBoxesNumber] = useState([]);
   const cabines = useSelector((state) => state.cabines);
-  let tabledata = {
-    name: null,
-    nbre_box: null,
-  };
+  const [dattaa, setDattaa] = useState([]);
   const [data, setData] = useState([]);
+
   useEffect(() => {
     console.log(data);
   }, [data]);
@@ -37,8 +35,21 @@ export default function Home() {
       setData((oldData) => [...oldData, { name: obj.id, nbre_box: obj.count }]);
     });
   }, [boxesnumber]);
-
+  
+  useEffect(() => {
+    console.log(dattaa);
+  },[dattaa]);
   const { Title, Text } = Typography;
+  const tableautarif = async () => {
+    const table = await TarifService.getAll();
+    console.log(table.data);
+    table?.data?.map((obj) => {
+      setDattaa((oldDattaa) => [
+        ...oldDattaa,
+        { duration: obj.duration, price: obj.price },
+      ]);
+    });
+  };
   const numberboxes = async () => {
     let test = await dashboardService.getboxesnumber();
 
@@ -65,16 +76,16 @@ export default function Home() {
     boxnumber();
     numberboxes();
     cabinenumber();
-
+    tableautarif();
     console.log(data);
   }, []);
 
   return (
     <div className="glob">
       {" "}
-      <p>Welcome to Home Page of Lock box</p>
+     <Title level={1}> Dashboard Of Lock Box</Title>
       <div className="site-statistic-demo-card">
-        <Row gutter={16}>
+        <Row gutter={16} className="roowwww">
           <Col span={4}>
             <Card>
               <Statistic
@@ -106,29 +117,59 @@ export default function Home() {
           </Col>
         </Row>
       </div>
-      <div className="card-box">
-        <Row gutter={16}></Row>
-      
-      {/* <ResponsiveContainer width="100%" height="100%"> */}
-      <BarChart
-        width={500}
-        height={300}
-        data={data}
-        margin={{
-          top: 5,
-          right: 30,
-          left: 20,
-          bottom: 5,
-        }}
-      >
-        <CartesianGrid strokeDasharray="3 3" />
-        <XAxis dataKey="name" />
-        <YAxis />
-        <Tooltip />
-        <Legend />
-        <Bar dataKey="nbre_box" fill="#4fd1b1" />
-      </BarChart>
-      {/* </ResponsiveContainer> */}
+      <div className="tableau-stats">
+        <div className="card-box1">
+        <Title level={2} className="titre51">Number Of Box By Cabine</Title>
+          <Row gutter={16}>
+
+          {/* <ResponsiveContainer width="100%" height="100%"> */}
+          <BarChart
+            width={500}
+            height={300}
+            data={data}
+            margin={{
+              top: 5,
+              right: 30,
+              left: 20,
+              bottom: 5,
+            }}
+          >
+            <CartesianGrid strokeDasharray="3 3" />
+            <XAxis dataKey="name" />
+            <YAxis />
+            <Tooltip />
+            <Legend />
+            <Bar dataKey="nbre_box" fill="#4fd1b1" />
+          </BarChart>
+          </Row>
+          {/* </ResponsiveContainer> */}
+        </div>
+        <div className="card-box2">
+        <Title level={2} className="titre51">Price By Duration</Title>
+          <Row gutter={16}>
+
+          {/* <ResponsiveContainer width="100%" height="100%"> */}
+          <BarChart
+            width={500}
+            height={300}
+            data={dattaa}
+            margin={{
+              top: 5,
+              right: 30,
+              left: 20,
+              bottom: 5,
+            }}
+          >
+            <CartesianGrid strokeDasharray="3 3" />
+            <XAxis dataKey="duration" />
+            <YAxis />
+            <Tooltip />
+            <Legend />
+            <Bar dataKey="price" fill="#4fd1b1" />
+          </BarChart>
+          </Row>
+          {/* </ResponsiveContainer> */}
+        </div>
       </div>
     </div>
   );
