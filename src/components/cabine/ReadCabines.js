@@ -205,6 +205,7 @@ const ListCabines = () => {
       dataIndex: "id",
       render: (id) => (
         <Space size="middle">
+          <Button> Ouvrir Tous les boxes</Button>
           <Button onClick={() => removeCabine(id)}>Delete</Button>
          
         </Space>

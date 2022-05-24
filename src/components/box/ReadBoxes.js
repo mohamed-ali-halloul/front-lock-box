@@ -189,7 +189,9 @@ const ListBoxes = () => {
       ],
       // specify the condition of filtering result
       // here is that finding the name started with `value`
-      onFilter: (value, record) => record.ref.indexOf(value) === 0,
+      onFilter: (value, record) => {
+        console.log("record of  ref",record);
+        return record.ref.indexOf(value) === 0},
       sorter: (a, b) => a.ref.length - b.ref.length,
       sortDirections: ["descend"],
     },
@@ -239,18 +241,34 @@ const ListBoxes = () => {
     {
       title: "cabines",
       key: "cabines",
-      filters: [
-        {
-          text: "M_01",
-          value: (cabines) => {
-            cabines?.ref;
-          },
-        },
-      ],
+     
       dataIndex: "cabines",
 
       render: (cabines) => <span>{cabines?.ref}</span>,
-
+      filters: [
+        {
+          text: "M_01",
+          value: "M_01",
+          },
+        {
+          text:"M_02",
+          value:"M_02"
+        },
+        {
+          text:"M_03",
+          value:"M_03"
+        },
+        {
+          text:"M_04",
+          value:"M_04"
+        },
+        {
+          text:"M_05",
+          value:"M_05"
+        },
+      ],
+      onFilter: (value, record) =>{console.log("record of cabine",record); 
+       return record?.cabines?.ref.indexOf(value) === 0},
       defaultSortOrder: "descend",
     },
     {
