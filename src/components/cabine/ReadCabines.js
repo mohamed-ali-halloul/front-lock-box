@@ -22,6 +22,7 @@ import {
   ReadCabine,
   updateCabine,
 } from "../../store/actions/cabineActions";
+import CabineService from "../../api/cabine/services";
 const EditableCell = ({
   editing,
   dataIndex,
@@ -90,7 +91,10 @@ const ListCabines = () => {
         console.log(e);
       });
   };
-  
+  const openAllBoxes=async(idcabine)=>{
+    console.log(idcabine);
+    let api= await CabineService.openAllBoxes(idcabine);
+  }
   const downloadQRCode = () => {
   htmlToImage.toPng(document.getElementById('code'))
   .then(function (dataUrl) {
@@ -205,7 +209,7 @@ const ListCabines = () => {
       dataIndex: "id",
       render: (id) => (
         <Space size="middle">
-          <Button> Ouvrir Tous les boxes</Button>
+          <Button onClick={()=>openAllBoxes(id)}> Ouvrir Tous les boxes</Button>
           <Button onClick={() => removeCabine(id)}>Delete</Button>
          
         </Space>

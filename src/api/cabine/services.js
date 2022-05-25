@@ -14,11 +14,15 @@ const Delete=(id)=> {
 const deleteAll=()=>{
     return http.delete('/');
 }
+const openAllBoxes=(idcabine)=>{
+    return http.post(`/boxavailable/${idcabine}`)
+}
 const CabineService ={
 create,
 getAll,
 Delete,
 deleteAll,
-update
+update,
+openAllBoxes
 };
 export default CabineService;
