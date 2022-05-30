@@ -80,9 +80,9 @@ return (
                   onChange={(e)=>setTarif({...tarif, display: e})}
                  /> 
                  </Form.Item>
-                 <Form.Item label="size Id">
+                 <Form.Item label="Size ">
           <Select
-            placeholder="size id"
+           
             id="enter-idsize"
             label="enterIdSize"
             variant="outlined"

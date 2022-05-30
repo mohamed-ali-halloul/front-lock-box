@@ -111,12 +111,15 @@ const AddBox = () => {
         </Form.Item>
 
         <Form.Item label="status">
-          <Input
+          <Select
             id="enter-status"
             variant="outlined"
             value={box.status}
-            onChange={(e) => setBox({ ...box, status: e.target.value })}
-          />
+            onChange={(e) => setBox({ ...box, status: e})}
+          >
+              <Option value="WORKING">WORKING</Option>
+      <Option value="OUT_OF_SERVICE">OUT_OF_SERVICE</Option>
+      </Select>
         </Form.Item>
         {/* <Form.Item label="code">
           <Input
@@ -141,7 +144,6 @@ const AddBox = () => {
                 </Form.Item>
         <Form.Item label="Cabine Ref">
           <Select
-            placeholder="cabine id"
             id="enter-idcabine"
             label="enterIdcabine"
             variant="outlined"
@@ -155,7 +157,7 @@ const AddBox = () => {
         </Form.Item>
         <Form.Item label="size ">
           <Select
-            placeholder="size id"
+           
             id="enter-idsize"
             label="enterIdsize"
             variant="outlined"

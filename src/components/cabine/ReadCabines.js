@@ -209,20 +209,20 @@ const ListCabines = () => {
       dataIndex: "id",
       render: (id) => (
         <Space size="middle">
-          <Button onClick={()=>openAllBoxes(id)}> Ouvrir Tous les boxes</Button>
+          <Button onClick={()=>openAllBoxes(id)}> Open All Boxes</Button>
           <Button onClick={() => removeCabine(id)}>Delete</Button>
          
         </Space>
       ),
     },
     {
-      title: "Generer Code QR",
+      title: "Code QR",
       key: "shortLink",
       dataIndex: "shortLink",
       
       render: (shortLink) =>  <>
       <Button type="primary" onClick={showModal}>
-    Generer Code QR
+    Generate Code QR
     </Button>
   <Modal title="QR CODE" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
 <div className="qrcenter">
