@@ -3,7 +3,6 @@ import "./App.less";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import Home from "./components/Home";
-import SignUp from "./components/auth/SignUp";
 import AddBox from "./components/box/CreateBox";
 import { loadUser } from "./store/actions/authActions";
 import { ToastContainer } from "react-toastify";
@@ -34,8 +33,7 @@ function App() {
 
         <Switch>
           <Route path="/" exact component={Acceuil} />
-          {/* <Route path="/connexion" component={SignIn} /> */}
-          <Route path="/signup" component={SignUp} />
+                  
 
           <LayoutDashboard>
             <PrivateRoute>

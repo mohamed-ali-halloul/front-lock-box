@@ -6,9 +6,7 @@ import SignIn from "./auth/SignIn";
 import { Image } from "antd";
 const Acceuil = () => {
   const history = useHistory();
-  const handleSignUp = () => {
-    history.push("/signup");
-  };
+
 
   return (
     <>
@@ -21,9 +19,7 @@ const Acceuil = () => {
           <div className="d1">
             <h1 className="titre">Welcome to Lock Box </h1>
             <SignIn />
-            <p>
-              Don't have an account please <a onClick={handleSignUp}>SignUp</a>
-            </p>
+           
           </div>
         </div>
         <div className="img2">
