@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 import {ReadTarif,deleteAllTarif,deleteTarif,updateTarif
 } from "../../store/actions/tarifActions";
 import SizeService from "../../api/size/services";
-
 import {
     Button,
     Typography,
