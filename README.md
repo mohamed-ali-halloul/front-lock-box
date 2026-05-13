@@ -1,4 +1,4 @@
-# 🔐 Lock Box — Frontend
+#  Lock Box — Frontend
 
 ![React](https://img.shields.io/badge/React-18+-61DAFB?style=flat-square&logo=react)
 ![Redux](https://img.shields.io/badge/Redux-State_Management-764ABC?style=flat-square&logo=redux)
@@ -11,7 +11,7 @@
 
 ---
 
-## 📖 Table of Contents
+##  Table of Contents
 
 - [About](#about)
 - [Tech Stack](#tech-stack)
@@ -24,13 +24,13 @@
 
 ---
 
-## 📌 About
+##  About
 
 **Lock Box Frontend** is the client-side application of the Lock Box project. It provides a clean and secure interface for users to store, manage, and retrieve their confidential data, interacting with the [back-end-lock-box](https://github.com/mohamed-ali-halloul/back-end-lock-box) API.
 
 ---
 
-## 🛠️ Tech Stack
+##  Tech Stack
 
 | Technology | Description |
 |---|---|
@@ -42,7 +42,7 @@
 
 ---
 
-## 🚀 Getting Started
+##  Getting Started
 
 ### Prerequisites
 
@@ -72,7 +72,7 @@ REACT_APP_API_URL=http://localhost:8080/api
 
 ---
 
-## 📜 Available Scripts
+##  Available Scripts
 
 ```bash
 # Start the development server
@@ -104,7 +104,7 @@ front-lock-box/
 
 ---
 
-## 🔗 Related Repositories
+##  Related Repositories
 
 | Repository | Description |
 |---|---|
@@ -112,7 +112,7 @@ front-lock-box/
 
 ---
 
-## 🤝 Contributing
+##  Contributing
 
 1. Fork the project
 2. Create your feature branch (`git checkout -b feature/my-feature`)
@@ -122,10 +122,10 @@ front-lock-box/
 
 ---
 
-## 📄 License
+##  License
 
-This project is licensed under the MIT License.
+This project is licensed under the MIT License
 
 ---
 
-<p align="center">Made with ❤️ by <a href="https://github.com/mohamed-ali-halloul">Mohamed Ali Halloul</a></p>
+<p align="center">Made by <a href="https://github.com/mohamed-ali-halloul">Mohamed Ali Halloul</a></p>
